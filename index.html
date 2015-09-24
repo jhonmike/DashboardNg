@@ -2,14 +2,23 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-  	<base href="/">
-  	<title>Undefined Code - Client AngularJS</title>
+	<base href="/">
+	<title>Undefined Code - Client AngularJS</title>
 </head>
 <body>
-  	<div ng-controller="MainController" ui-view></div>
+	<ui-view></ui-view>
 
-  	<script src="node_modules/angular/angular.js"></script>
-  	<script src="undefined-source/config/config.global.js"></script>
-	<script src="undefined-source/config/config.local.js"></script>
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular-ui-router/build/angular-ui-router.js"></script>
+	<script src="undefined-source/config.global.js"></script>
+	<script src="undefined-source/config.local.js"></script>
+	
+	<script src="undefined-source/us-layout-admin/module.js"></script>
+	<script src="undefined-source/us-layout-admin/config/router.js"></script>
+	<script src="undefined-source/us-layout-admin/controller/main.js"></script>
+	
+	<script src="modules/us-site/module.js"></script>
+	<script src="modules/us-site/config/router.js"></script>
+	<script src="modules/us-site/controller/site.js"></script>
 </body>
 </html>

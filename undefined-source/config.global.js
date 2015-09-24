@@ -10,14 +10,14 @@ var USConfig = (function() {
 	return {
 		applicationModuleName: applicationModuleName,
 		applicationModuleVendorDependencies: [
-			'ngResource',
-			'ngAnimate',
-			'ngCookies',
-			'ngSanitize',
-			'ngTouch',
-			'ngStorage',
-			'ui.router',
-			'ui.bootstrap'
+			'ui.router'
+			// 'ngResource',
+			// 'ngAnimate',
+			// 'ngCookies',
+			// 'ngSanitize',
+			// 'ngTouch',
+			// 'ngStorage',
+			// 'ui.bootstrap'
 		],
 		registerModule: registerModule
 	};
