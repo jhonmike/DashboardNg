@@ -1,2 +1,2 @@
-SKELETON APP
-============
+Client Side em AngularJS
+========================
