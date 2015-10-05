@@ -1,6 +1,4 @@
-'use strict';
-
-angular.module('usUser').factory('User', ['$resource',
+angular.module('usAdmin').factory('User', ['$resource',
 	function($resource) {
 		return $resource(AppConfig.serverUrl + '/user/:id', {
 			id: '@id'

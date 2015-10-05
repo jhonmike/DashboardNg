@@ -11,12 +11,12 @@ angular.module('usLayout').config(['$urlRouterProvider', '$stateProvider',
 		$stateProvider.
 		state('us', {
 			abstract: true,
-			url: '/us-admin',
-			templateUrl: 'undefined-source/us-layout-admin/view/layout-admin.html'
+			templateUrl: 'modules/us-layout/components/site/layout.html'
 		}).
-		state('us.dashboard', {
-			url: '/dashboard',
-			templateUrl: 'undefined-source/us-layout-admin/view/admin-dashboard.html'
+		state('usAdmin', {
+			abstract: true,
+			url: '/us-admin',
+			templateUrl: 'modules/us-layout/components/admin/layout.html'
 		});
 	}
 ]);

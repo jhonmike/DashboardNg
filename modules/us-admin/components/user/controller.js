@@ -1,6 +1,4 @@
-'use strict';
-
-angular.module('usUser').controller('UserController',
+angular.module('usAdmin').controller('UserController',
 ['$state', '$stateParams', 'User', 'filterFilter', 
 function($state, $stateParams, User, filterFilter) {	
 	this.find = function() {
