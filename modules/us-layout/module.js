@@ -1,3 +1,3 @@
 'use strict';
 
-USConfig.registerModule('usLayout', ['usUtil']);
+USConfig.registerModule('usLayout');

@@ -1,6 +1,6 @@
 angular.module('usAdmin').factory('User', ['$resource',
 	function($resource) {
-		return $resource(AppConfig.serverUrl + '/user/:id', {
+		return $resource(USConfig.serverUrl + '/user/:id', {
 			id: '@id'
 		}, {
 			update: {method: 'PUT'},

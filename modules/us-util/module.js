@@ -1,3 +1,3 @@
 'use strict';
 
-AppConfig.registerModule('usUtil');
+USConfig.registerModule('usUtil');

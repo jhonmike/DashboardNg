@@ -1,1 +1,3 @@
-AppConfig.registerModule('usAdmin');
+'use strict';
+
+USConfig.registerModule('usAdmin');
