@@ -1,6 +1,14 @@
-angular.module('usAdmin').controller('UserController',
-['$state', '$stateParams', 'User', 'filterFilter', 
-function($state, $stateParams, User, filterFilter) {	
+angular.module('usAuth').controller('UserController', UserController);
+
+UserController.$inject = [
+	'$scope',
+	'$state',
+	'$stateParams',
+	'User',
+	'filterFilter'
+];
+ 
+function UserController($scope, $state, $stateParams, User, filterFilter) {	
 	this.find = function() {
 		this.users = User.query();
 		this.currentPage = 1;
@@ -61,4 +69,4 @@ function($state, $stateParams, User, filterFilter) {
 			});
 		}
 	};
-}]);
+};

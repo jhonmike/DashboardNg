@@ -10,13 +10,13 @@ var USConfig = (function() {
 	return {
 		applicationModuleName: applicationModuleName,
 		applicationModuleVendorDependencies: [
-			'ui.router'
-			// 'ngResource',
+			'ui.router',
+			'ngResource',
+			'ngStorage'
 			// 'ngAnimate',
 			// 'ngCookies',
 			// 'ngSanitize',
 			// 'ngTouch',
-			// 'ngStorage',
 			// 'ui.bootstrap'
 		],
 		registerModule: registerModule
@@ -26,7 +26,7 @@ var USConfig = (function() {
 angular.module(USConfig.applicationModuleName, USConfig.applicationModuleVendorDependencies)
 .config(['$locationProvider',
 	function($locationProvider) {
-		 $locationProvider.html5Mode(true);
+		//  $locationProvider.html5Mode(true);
 	}
 ]);
 
