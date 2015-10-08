@@ -1,5 +1,15 @@
-<loader ng-if="loader">Carregando...</loader>
-<header>Header</header>
-<aside>Aside</aside>
-<ui-view></ui-view>
-<footer>Footer</footer>
+<div class="skin-blue sidebar-mini">
+	<div class="wrapper">
+		<header ng-include="'modules/us-layout/views/blocks/header.html'" class="main-header"></header>
+		<aside ng-include="'modules/us-layout/views/blocks/aside.html'" class="main-sidebar"></aside>
+		<ui-view class="content-wrapper"></ui-view>
+		<footer class="main-footer">
+			<div class="pull-right hidden-xs">
+				<b>Version</b> 0.0.1
+			</div>
+			<strong>Copyright &copy; 2015 <a href="http://.com"></a>.</strong> All rights reserved.
+		</footer>
+		<aside ng-include="'modules/us-layout/views/blocks/aside-right.html'" class="control-sidebar control-sidebar-dark"></aside>
+		<div class="control-sidebar-bg"></div>
+	</div>
+</div>

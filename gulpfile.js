@@ -21,6 +21,7 @@ gulp.task('libs', function() {
     	"node_modules/angular-resource/angular-resource.js",
     	"node_modules/ngstorage/ngStorage.js",
     	"node_modules/angular-ui-router/build/angular-ui-router.js",
+        "node_modules/angular-bootstrap/ui-bootstrap.js",
     	"config/global.js",
     	"config/local.js"
     ];
@@ -56,7 +57,7 @@ gulp.task('modules', function() {
 // CSS
 gulp.task('css', function() {
     var stream = gulp
-    .src('assets/less/style.less')
+    .src(['node_modules/bootstrap/dist/css/bootstrap.css','assets/less/style.less'])
     .pipe(less()
     .on('error', notify.onError(function (error) {
         return 'Error compiling LESS: ' + error.message;
