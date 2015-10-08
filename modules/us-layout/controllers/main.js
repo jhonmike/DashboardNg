@@ -5,14 +5,16 @@ angular.module('usLayout').controller('MainController', MainController);
 MainController.$inject = [
 	'$scope',
 	'$state',
+	'$localStorage',
 	'Menu',
 	'Widget'
 ];
 
-function MainController($scope, $state, Menu, Widget) 
+function MainController($scope, $state, $localStorage, Menu, Widget) 
 {
 	this.loader = true;
-	this.auth = false;
+	// TODO
+	this.auth = $localStorage.user;
 	if (this.auth) {
 		$state.go('usAdmin.dashboard');
 		this.loader = false;
