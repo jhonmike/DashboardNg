@@ -10,11 +10,11 @@ AuthenticationController.$inject = [
 ];
 
 function AuthenticationController($scope, $http, $state, $localStorage) {
-	this.credentials = {};
+	this.user = {};
 	this.signin = function() {
 		// this.sending = true;
 		// this.alerts = [];
-		// $http.post(USConfig.serverUrl + '/auth', this.credentials)
+		// $http.post(USConfig.serverUrl + '/auth', this.user)
 		// .success(function(response) {
 		// 	$localStorage.user = response;
 		// 	$state.go('usAdmin.dashboard');
@@ -23,7 +23,7 @@ function AuthenticationController($scope, $http, $state, $localStorage) {
 		// 	this.alerts.push({type:'danger', msg:response.error});
 		// });
 		// provisorio
-		$localStorage.user = this.credentials;
+		$localStorage.user = this.user;
 		$state.go('usAdmin.dashboard');
 	};
 
