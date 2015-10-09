@@ -1,19 +1,18 @@
 'use strict';
 
-USConfig.serveUrl = 'http://localhost/';
+USConfig.serverUrl = 'http://localhost:8000/database';
 USConfig.layout = {
-	name: 'Undefined Source',
+	name: 'Undefined',
 	version: '0.0.1',
-	// for chart colors
 	color: {
-		primary: '#7266ba',
-		info:    '#23b7e5',
-		success: '#27c24c',
-		warning: '#fad733',
-		danger:  '#f05050',
-		light:   '#e8eff0',
-		dark:    '#3a3f51',
-		black:   '#1c2b36'
+		primary: '#4051B5',
+		info:    '#00BCD4',
+		success: '#4CAF50',
+		warning: '#FFC107',
+		danger:  '#E91C63',
+		light:   '#EFEFEF',
+		dark:    '#455A64',
+		black:   '#14171A'
 	},
 	settings: {
 		themeID: 1,

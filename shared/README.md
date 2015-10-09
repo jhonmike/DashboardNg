@@ -1,0 +1,1 @@
+Services compartilhados por todos os modulos do client.

@@ -1,15 +1,15 @@
 'use strict';
 
-USConfig.serveUrl = 'http://localhost/';
+USConfig.serverUrl = 'http://localhost:8000/database';
 USConfig.layout = {
 	name: 'Undefined',
 	version: '0.0.1',
 	color: {
 		primary: '#4051B5',
-		info:    '#03A9F4',
+		info:    '#00BCD4',
 		success: '#4CAF50',
 		warning: '#FFC107',
-		danger:  '#F44336',
+		danger:  '#E91C63',
 		light:   '#EFEFEF',
 		dark:    '#455A64',
 		black:   '#14171A'
