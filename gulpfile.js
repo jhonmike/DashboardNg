@@ -46,7 +46,7 @@ gulp.task('libs', function() {
 // Modules
 gulp.task('modules', function() {
     var stream = gulp
-    .src(['shared/**/*.js', 'modules/**/*.js'])
+    .src(['shared/*.js', 'modules/**/*.js'])
     .pipe(concat('modules.js'));
 
     if (config.uglifyJS === true) {
