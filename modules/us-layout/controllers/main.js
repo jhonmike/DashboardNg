@@ -14,12 +14,17 @@ MainController.$inject = [
 function MainController($scope, $state, $localStorage, $window, Menu, Widget) 
 {
 	// TODO
-	this.auth = $localStorage.user;
-	if (this.auth) {
+	$scope.auth = $localStorage.user;
+	if ($scope.auth) {
 		$state.go('usAdmin.dashboard');
 	} else {
 		$state.go('us.signin');
 	}
+	
+	// Menus
+	$scope.topbar = Menu.getMenu('topbar');
+	$scope.navbar = Menu.getMenu('navbar');
+	$scope.$state = $state;
 	
 	$scope.app = USConfig.layout;
 	if ( angular.isDefined($localStorage.settings) ) {
@@ -35,10 +40,7 @@ function MainController($scope, $state, $localStorage, $window, Menu, Widget)
 	}, true);
 	
 	$scope.activeSetting = false;
-	$scope.tabSetting = function(){
-		if (!$scope.activeSetting)
-			$scope.activeSetting = true;
-		else
-			$scope.activeSetting = false;
+	$scope.tabSetting = function() {
+		$scope.activeSetting = (!$scope.activeSetting) ? true : false;
 	}
 };
