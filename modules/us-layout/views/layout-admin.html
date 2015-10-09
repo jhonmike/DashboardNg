@@ -1,15 +1,23 @@
-<div class="skin-blue sidebar-mini">
-	<div class="wrapper">
-		<header ng-include="'modules/us-layout/views/blocks/header.html'" class="main-header"></header>
-		<aside ng-include="'modules/us-layout/views/blocks/aside.html'" class="main-sidebar"></aside>
-		<ui-view class="content-wrapper"></ui-view>
-		<footer class="main-footer">
-			<div class="pull-right hidden-xs">
-				<b>Version</b> 0.0.1
-			</div>
-			<strong>Copyright &copy; 2015 <a href="http://.com"></a>.</strong> All rights reserved.
-		</footer>
-		<aside ng-include="'modules/us-layout/views/blocks/aside-right.html'" class="control-sidebar control-sidebar-dark"></aside>
-		<div class="control-sidebar-bg"></div>
-	</div>
+<!-- navbar -->
+<div ng-include=" 'modules/us-layout/views/blocks/header.html' " class="app-header navbar"></div>
+<!-- / navbar -->
+
+<!-- menu -->
+<div data-ng-include=" 'modules/us-layout/views/blocks/aside.html' " class="app-aside hidden-xs {{app.settings.asideColor}}"></div>
+<!-- / menu -->
+
+<!-- content -->
+<div class="app-content">
+    <a href class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".app-aside" ></a>
+    <div class="app-content-body fade-in-up" ui-view></div>
 </div>
+<!-- /content -->
+
+<!-- footer -->
+<div class="app-footer wrapper b-t bg-light">
+    <span class="pull-right">{{app.version}} <a href ui-scroll-to="app" class="m-l-sm text-muted"><i class="fa fa-long-arrow-up"></i></a></span>
+    &copy; 2015 Copyright.
+</div>
+<!-- / footer -->
+
+<div data-ng-include=" 'modules/us-layout/views/blocks/settings.html' " ng-class="{'active': activeSetting}" class="settings panel panel-default"></div>

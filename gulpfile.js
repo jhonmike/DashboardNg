@@ -18,10 +18,14 @@ var config = {
 gulp.task('libs', function() {
     var libs = [
         "node_modules/angular/angular.js",
-    	"node_modules/angular-resource/angular-resource.js",
+    	"node_modules/angular-animate/angular-animate.js",
+        "node_modules/angular-cookies/angular-cookies.js",
+        "node_modules/angular-resource/angular-resource.js",
+        "node_modules/angular-sanitize/angular-sanitize.js",
+        "node_modules/angular-touch/angular-touch.js",
     	"node_modules/ngstorage/ngStorage.js",
     	"node_modules/angular-ui-router/build/angular-ui-router.js",
-        "node_modules/angular-bootstrap/ui-bootstrap.js",
+        "node_modules/angular-bootstrap/ui-bootstrap-tpls.js",
     	"config/global.js",
     	"config/local.js"
     ];
@@ -35,7 +39,7 @@ gulp.task('libs', function() {
     }
 
     return stream
-    .pipe(gulp.dest('dist/assets'))
+    .pipe(gulp.dest('dist/assets/js'))
     .pipe(livereload());
 });
 
@@ -50,14 +54,18 @@ gulp.task('modules', function() {
     }
 
     return stream
-    .pipe(gulp.dest('dist/assets'))
+    .pipe(gulp.dest('dist/assets/js'))
     .pipe(livereload());
 });
 
 // CSS
 gulp.task('css', function() {
     var stream = gulp
-    .src(['node_modules/bootstrap/dist/css/bootstrap.css','assets/less/style.less'])
+    .src([
+        'node_modules/bootstrap/dist/css/bootstrap.css',
+        'node_modules/font-awesome/css/font-awesome.css',
+        'assets/less/app.less'
+    ])
     .pipe(less()
     .on('error', notify.onError(function (error) {
         return 'Error compiling LESS: ' + error.message;
@@ -66,7 +74,20 @@ gulp.task('css', function() {
     .pipe(minifycss());
 
     return stream
-    .pipe(gulp.dest('dist/assets/'))
+    .pipe(gulp.dest('dist/assets/css'))
+    .pipe(livereload());
+});
+
+// Fonts
+gulp.task('fonts', function() {
+    var stream = gulp
+    .src([
+        'node_modules/bootstrap/dist/fonts/*',
+        'node_modules/font-awesome/fonts/*'
+    ]);
+
+    return stream
+    .pipe(gulp.dest('dist/assets/fonts'))
     .pipe(livereload());
 });
 
@@ -91,5 +112,5 @@ gulp.task('connect', function () {
 
 // Default task
 gulp.task('default', function() {
-    gulp.start('libs', 'modules', 'css', 'connect', 'watch');
+    gulp.start('libs', 'modules', 'css', 'fonts', 'connect', 'watch');
 });

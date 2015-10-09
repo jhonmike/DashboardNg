@@ -1,8 +1,8 @@
 'use strict';
 
 var USConfig = (function() {
-	var applicationModuleName = 'UndefinedSource';
-	var registerModule = function(moduleName, dependencies) {
+    var applicationModuleName = 'UndefinedSource';
+    var registerModule = function(moduleName, dependencies) {
 		angular.module(moduleName, dependencies || []);
 		angular.module(applicationModuleName).requires.push(moduleName);
 	};
@@ -10,13 +10,13 @@ var USConfig = (function() {
 	return {
 		applicationModuleName: applicationModuleName,
 		applicationModuleVendorDependencies: [
-			'ui.router',
 			'ngResource',
 			'ngStorage',
-			// 'ngAnimate',
-			// 'ngCookies',
-			// 'ngSanitize',
-			// 'ngTouch',
+			'ngAnimate',
+			'ngCookies',
+			'ngSanitize',
+			'ngTouch',
+			'ui.router',
 			'ui.bootstrap'
 		],
 		registerModule: registerModule
