@@ -91,6 +91,15 @@ gulp.task('fonts', function() {
     .pipe(livereload());
 });
 
+// HTML
+gulp.task('html', function(){
+    var stream = gulp
+    .src(['modules/**/*.html']);
+
+    return stream
+    .pipe(livereload());
+});
+
 // Watch
 gulp.task('watch', function() {
     livereload.listen();
@@ -98,8 +107,11 @@ gulp.task('watch', function() {
     // Watch .less files
     gulp.watch('assets/less/**/*.less', ['css']);
 
-    // Watch modules files
+    // Watch modules .js files
     gulp.watch('modules/**/*.js', ['modules']);
+
+    // Watch modules .html files
+    gulp.watch('modules/**/*.html', ['html']);
 });
 
 //Server
