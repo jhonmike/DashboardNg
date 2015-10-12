@@ -18,3 +18,4 @@ agora só rodar o gulp onde ele vai chegar um servidor liveload para desenvolvim
 	gulp
 	
 	http://localhost:8000
+
