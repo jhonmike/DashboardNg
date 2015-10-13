@@ -1,13 +1,22 @@
 {
-  "name": "UndefinedSource",
+  "name": "Client AngularJS",
   "version": "0.0.1",
-  "description": "Meu padrão de desenvolvimento com angularjs em Client Side.",
+  "description": "Padrão de desenvolvimento com angularjs.",
+  "homepage": "http://undefinedsource.github.io/",
   "main": "index.html",
+  "bugs": {
+    "url" : "https://github.com/undefinedsource/cs-angularjs/issues",
+    "email" : "developer@jhonmike.com.br"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jhon Mike Soares <developer@jhonmike.com.br>",
+  "author": "Undefined Source",
   "contributors": [
+    {
+      "name": "Jhon Mike Soares",
+      "email": "developer@jhonmike.com.br"
+    },
     {
       "name": "Julio Cezar Fabiane",
       "email": "juliofabiane1@gmail.com"
