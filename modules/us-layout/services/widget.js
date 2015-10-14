@@ -115,6 +115,6 @@ angular.module('usLayout').service('Widget', [
 			});
 		};
 		
-		this.addDashboard('principal');
+		this.addDashboard('dashboard');
 	}
 ]);

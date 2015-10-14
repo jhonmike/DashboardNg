@@ -5,7 +5,7 @@
 		</div>
 		<div class="panel-body">
 			<p class="text-center padder-v font-bold">LOGIN</p>
-			<form name="form" class="form-validation m-b-md">
+			<form name="form" class="form-validation m-b-md" ng-submit="signin()">
 				<div class="form-group has-feedback">
 					<input placeholder="Usuário" ng-model="user.username" class="form-control" type="text" required>
 					<span class="fa fa-user form-control-feedback text-muted"></span>
@@ -20,7 +20,7 @@
 					</label>
 				</div>
 				<br>
-				<button type="submit" class="btn btn-primary btn-block" ng-click="login()" ng-disabled='form.$invalid'>Login</button>
+				<button type="submit" class="btn btn-primary btn-block" ng-disabled='form.$invalid'>Login</button>
 			</form>
 			<p class="text-center text-muted">ou</p>
 			<a href="#" ui-sref="access.signup" class="btn btn-block btn-default">

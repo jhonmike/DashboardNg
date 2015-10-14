@@ -8,4 +8,12 @@
 			</div>
 		</div>
 	</div>
+	<div class="wrapper-md">
+		<div class="row">
+			<div ng-repeat="widget in dashboard.items | orderBy: 'position'" class="{{widget.itemClass}}">
+				<div ng-if="widget.template" ng-bind-html="widget.template"></div>
+				<div ng-if="widget.templateUrl" ng-include="widget.templateUrl"></div>
+			</div>
+		</div>
+	</div>
 </div>
