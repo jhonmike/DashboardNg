@@ -4,7 +4,7 @@
 			<span class="navbar-brand block" ng-bind="app.name"></span>
 		</div>
 		<div class="panel-body">
-			<p class="text-center padder-v font-bold">LOGIN</p>
+			<p class="text-center padder-v font-bold">CADASTRO</p>
 			<form name="form" class="form-validation m-b-md">
 				<div class="form-group has-feedback">
 					<input placeholder="Usuário" ng-model="user.username" class="form-control" type="text" required>
@@ -14,20 +14,22 @@
 					<input  placeholder="Senha" ng-model="user.password" class="form-control" type="password" required>
 					<span class="fa fa-lock form-control-feedback text-muted"></span>
 				</div>
+                <div class="form-group has-feedback">
+					<input  placeholder="Repita a senha" ng-model="user.password_confirm" class="form-control" type="password" required>
+					<span class="fa fa-lock form-control-feedback text-muted"></span>
+				</div>
 				<div class="checkbox m-b-md m-t-none">
-					<label class="i-checks">
-						<input type="checkbox" ng-model="user.rememberme"><i></i> Lembrar-me
+					<label class="i-checks text-muted">
+						<input type="checkbox" ng-model="user.agreed_terms"><i></i> Aceito os <a class="text-muted" href="#">Termos</a>
 					</label>
 				</div>
 				<br>
-				<button type="submit" class="btn btn-primary btn-block" ng-click="login()" ng-disabled='form.$invalid'>Login</button>
+				<button type="submit" class="btn btn-primary btn-block" ng-click="register()" ng-disabled='form.$invalid'>Criar conta</button>
 			</form>
-			<p class="text-center text-muted">ou</p>
-			<a href="#" ui-sref="access.signup" class="btn btn-block btn-default">
-				<strong>Cadastre-se</strong>
+			<p class="text-center text-muted">já é cadastrado?</p>
+			<a href="#" ui-sref="access.signin" class="btn btn-block btn-default">
+				<strong>Login</strong>
 			</a>
-		</div>
-		<div class="text-center padder-v"><a href="#" class="text-muted">Esqueceu a senha?</a>
 		</div>
 	</div>
 </div>
