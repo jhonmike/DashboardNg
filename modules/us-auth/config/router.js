@@ -17,5 +17,10 @@ function configAuth($urlRouterProvider, $stateProvider)
 		url: '/signin',
 		templateUrl: 'modules/us-auth/views/signin.html',
 		controller: AuthenticationController
+	})
+	.state('access.signup', {
+		url: '/signup',
+		templateUrl: 'modules/us-auth/views/signup.html',
+		controller: AuthenticationController
 	});
 };
