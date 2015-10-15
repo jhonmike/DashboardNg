@@ -25,6 +25,9 @@ function MainController($scope, $state, $localStorage, $window, Menu, Widget)
 	$scope.topbar = Menu.getMenu('topbar');
 	$scope.navbar = Menu.getMenu('navbar');
 	$scope.$state = $state;
+	
+	// Dashboard Widget
+	$scope.dashboard = Widget.getDashboard('dashboard');
 
 	$scope.app = USConfig.layout;
 	if ( angular.isDefined($localStorage.settings) ) {

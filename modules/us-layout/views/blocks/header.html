@@ -24,8 +24,28 @@
     </div>
     <!-- / buttons -->
     <!-- link and dropdown -->
-    <ul class="nav navbar-nav hidden-sm">
-        <!--TODO MENU-->
+    <ul class="nav navbar-nav" ng-if="app.default.topbar">
+        <li ng-repeat="item in topbar.items | orderBy: 'position'" class="{{item.itemClass}}" ng-class="{'active':$state.includes(item.link), 'dropdown':item.items.length > 0}" dropdown>
+            <!-- NIVEL 01 -->
+            <a ui-sref="{{item.link}}" ng-if="item.items.length == 0">
+                <i ng-if="item.icon" class="{{item.icon}}"></i>
+                <span ng-bind="item.title"></span>
+            </a>
+            <!-- NIVEL 01 Sub -->
+            <a class="dropdown-toggle" ng-if="item.items.length > 0" dropdown-toggle>
+                <i ng-if="item.icon" class="{{item.icon}}"></i>
+                <span ng-bind="item.title"></span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu" role="menu" ng-if="item.items.length > 0">
+                <li ng-repeat="sub1 in item.items | orderBy: 'position'" ng-class="{'dropdown-submenu':sub1.items.length > 0}">
+                    <!-- NIVEL 02 -->
+                    <a tabindex="-1" ui-sref="{{sub1.link}}" ng-if="sub1.items.length == 0">
+                        <span ng-bind="sub1.title"></span>
+                    </a>
+                </li>
+            </ul>
+        </li>
     </ul>
     <!-- / link and dropdown -->
 
