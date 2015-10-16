@@ -31,45 +31,43 @@
 					</div>
 				</div>
 			</div>
-			<div class="panel-body">
-				<div class="table-responsive">
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th style="width:20px;">
-									<label class="i-checks m-b-none">
-										<input type="checkbox"><i></i>
-									</label>
-								</th>
-								<th>Id</th>
-								<th>Nome</th>
-								<th>Email</th>
-								<th>Username</th>
-								<th style="width:30px;"></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr ng-repeat="user in users | filter: search">
-								<td>
-									<label class="i-checks m-b-none">
-										<input type="checkbox" name="post[]"><i></i>
-									</label>
-								</td>
-								<td ng-bind="user.id"></td>
-								<td ng-bind="user.nome"></td>
-								<td ng-bind="user.email"></td>
-								<td ng-bind="user.username"></td>
-								<td>
-									<a href class="active" ui-toggle-class>
-										<i class="fa fa-check text-success text-active"></i>
-										<i class="fa fa-times text-danger text"></i>
-									</a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th style="width:20px;">
+								<label class="i-checks m-b-none">
+									<input type="checkbox"><i></i>
+								</label>
+							</th>
+							<th>Id</th>
+							<th>Nome</th>
+							<th>Email</th>
+							<th>Username</th>
+							<th style="width:30px;"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="user in users | filter: search">
+							<td>
+								<label class="i-checks m-b-none">
+									<input type="checkbox" name="post[]"><i></i>
+								</label>
+							</td>
+							<td ng-bind="user.id"></td>
+							<td ng-bind="user.name"></td>
+							<td ng-bind="user.email"></td>
+							<td ng-bind="user.username"></td>
+							<td>
+								<a href class="active" ui-toggle-class>
+									<i class="fa fa-check text-success text-active"></i>
+									<i class="fa fa-times text-danger text"></i>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>			
 			<div class="panel-footer">
 				<div class="row">
 					<div class="col-sm-6 col-md-4 hidden-xs">
