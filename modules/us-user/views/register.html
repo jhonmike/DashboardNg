@@ -1,1 +1,92 @@
-User Register
+<div class="col">
+    <!-- main header -->
+    <div class="bg-light lter b-b wrapper-md">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <h1 class="m-n font-thin h3 text-black">Usuários</h1>
+                <small class="text-muted">Cadastro de usuário</small>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper-md">
+        <div class="panel panel-default">
+            <div class="panel-heading font-bold">Dados do usuário</div>
+            <div class="panel-body">
+                <form action="" class="form-horizontal">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label for="" class="col-lg-4 control-label">Nome</label>
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" placeholder="Nome">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="col-lg-4 control-label">Sobrenome</label>
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" placeholder="Sobrenome">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="col-lg-4 control-label">E-mail</label>
+                                <div class="col-lg-8">
+                                    <input type="email" class="form-control" placeholder="E-mail">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="col-lg-4 control-label">Usuário</label>
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" placeholder="Usuário">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="col-lg-4 control-label">Senha</label>
+                                <div class="col-lg-8">
+                                    <input type="password" class="form-control" placeholder="Senha">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="col-lg-4 control-label">Repita a senha</label>
+                                <div class="col-lg-8">
+                                    <input type="password" class="form-control" placeholder="Repita a senha">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div ng-controller="ImgCropCtrl">                                
+                                <div class="m-b">
+                                    Foto
+                                    <input id="fileInput" type="file">
+                                </div>
+                                <div class="hbox hbox-auto-xs">
+                                    <div class="col">
+                                        <div class="wrapper-sm b-a bg-white m-r-xs m-b-xs">
+                                            <div class="bg-light" style="height:320px">
+                                                <img-crop class="ng-isolate-scope" image="myImage" result-image="myCroppedImage" result-image-size="160" area-type="circle"><canvas style="margin-top: 0px;" height="0" width="0"></canvas></img-crop>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="inline bg-white wrapper-sm b-a">
+                                            <div class="bg-light">
+                                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAYAAACLz2ctAAAAeklEQVR4nO3BMQEAAADCoPVPbQ0PoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHgwkK8AAWW3G6sAAAAASUVORK5CYII=" ng-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAYAAACLz2ctAAAAeklEQVR4nO3BMQEAAADCoPVPbQ0PoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHgwkK8AAWW3G6sAAAAASUVORK5CYII=">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-group m-t">
+                                    <label aria-invalid="false" tabindex="0" class="btn btn-default ng-pristine ng-untouched ng-valid active" ng-model="cropType" btn-radio="'circle'">Circle</label>
+                                    <label aria-invalid="false" tabindex="0" class="btn btn-default ng-pristine ng-untouched ng-valid" ng-model="cropType" btn-radio="'square'">Square</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="panel-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
