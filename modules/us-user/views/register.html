@@ -1,1 +1,101 @@
-User Register
+<div class="col">
+    <!-- main header -->
+    <div class="bg-light lter b-b wrapper-md">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <h1 class="m-n font-thin h3 text-black">Usuários</h1>
+                <small class="text-muted">Cadastro de usuário</small>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper-md">
+        <div class="panel panel-default">
+            <div class="panel-heading font-bold">Dados do usuário</div>
+            <div class="panel-body">
+                <form action="" class="form-horizontal">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="" class="col-sm-3 control-label">Nome</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="Nome">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="col-sm-3 control-label">Sobrenome</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="Sobrenome">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="col-sm-3 control-label">E-mail</label>
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control" placeholder="E-mail">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="col-sm-3 control-label">Usuário</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="Usuário">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="col-sm-3 control-label">Senha</label>
+                                <div class="col-sm-9">
+                                    <input type="password" class="form-control" placeholder="Senha">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="col-sm-3 control-label">Repita a senha</label>
+                                <div class="col-sm-9">
+                                    <input type="password" class="form-control" placeholder="Repita a senha">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div ng-controller="ImgCropCtrl">
+                                <div class="form-group">
+                                    <label for="" class="col-sm-3 col-lg-1 control-label">Foto</label>
+                                    <div class="col-sm-9 col-lg-11">
+                                        <input type="file" id="fileInput" />
+                                        <div class="hbox hbox-auto-xs m-t">
+                                            <div class="row">
+                                                <div class="col-sm-8 col-md-7 col-lg-6">
+                                                    <div class="wrapper-sm b-a bg-white m-r-xs m-b-xs">
+                                                        <div class="bg-light" style="height:235px">
+                                                            <img-crop
+                                                            image="myImage"
+                                                            result-image="myCroppedImage"
+                                                            result-image-size="160"
+                                                            area-type="{{cropType}}"
+                                                            ></img-crop>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-5">
+                                                    <div class="inline bg-white wrapper-sm b-a">
+                                                        <div class="bg-light">
+                                                            <img ng-src="{{myCroppedImage}}" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-group m-t">
+                                            <label class="btn btn-default" ng-model="cropType" btn-radio="'circle'">Circle</label>
+                                            <label class="btn btn-default" ng-model="cropType" btn-radio="'square'">Square</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="panel-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
