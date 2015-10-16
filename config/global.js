@@ -15,7 +15,8 @@ var USConfig = (function() {
 			'ngAnimate',
 			'ngCookies',
 			'ngSanitize',
-			'ngTouch',
+            'ngTouch',
+			'ngImgCrop',
 			'ui.router',
 			'ui.bootstrap'
 		],
