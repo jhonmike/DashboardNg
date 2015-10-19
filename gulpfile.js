@@ -24,6 +24,7 @@ gulp.task('libs', function() {
         "node_modules/angular-sanitize/angular-sanitize.js",
         "node_modules/angular-touch/angular-touch.js",
     	"node_modules/ngstorage/ngStorage.js",
+        "node_modules/ng-img-crop/compile/minified/ng-img-crop.js",
     	"node_modules/angular-ui-router/build/angular-ui-router.js",
         "node_modules/angular-bootstrap/ui-bootstrap-tpls.js",
     	"config/global.js",
@@ -64,6 +65,7 @@ gulp.task('css', function() {
     .src([
         'node_modules/bootstrap/dist/css/bootstrap.css',
         'node_modules/font-awesome/css/font-awesome.css',
+        'node_modules/ng-img-crop/compile/minified/ng-img-crop.css',
         'assets/less/app.less'
     ])
     .pipe(less()
