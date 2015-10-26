@@ -14,7 +14,7 @@ function configUser($urlRouterProvider, $stateProvider)
 		controller: UserController
 	})
 	.state('usAdmin.userRegister', {
-		url: '/user/register',
+		url: '/user/register/:id',
 		templateUrl: 'modules/us-user/views/register.html',
 		controller: UserController
 	});
