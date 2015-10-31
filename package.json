@@ -45,6 +45,7 @@
     "bootstrap": "^3.3.5",
     "font-awesome": "^4.4.0",
     "ngstorage": "^0.3.9",
-    "ng-img-crop": "^0.2.0"
+    "ng-img-crop": "^0.2.0",
+    "uigrid": "^3.0.0"
   }
 }

@@ -28,29 +28,26 @@ function AppConfig($stateProvider)
 
 function AppController($scope, $state, $localStorage, Menu)
 {
-	$scope.admin = function() 
-	{
-		// Menus
-		$scope.topbar = Menu.getMenu('topbar');
-		$scope.navbar = Menu.getMenu('navbar');
-		$scope.$state = $state;
-	
-		$scope.app = USConfig.layout;
-		if ( angular.isDefined($localStorage.settings) ) {
-			$scope.app.settings = $localStorage.settings;
-		} else {
-			$localStorage.settings = $scope.app.settings;
+	// Menus
+	$scope.topbar = Menu.getMenu('topbar');
+	$scope.navbar = Menu.getMenu('navbar');
+	$scope.$state = $state;
+
+	$scope.app = USConfig.layout;
+	if ( angular.isDefined($localStorage.settings) ) {
+		$scope.app.settings = $localStorage.settings;
+	} else {
+		$localStorage.settings = $scope.app.settings;
+	}
+	$scope.$watch('app.settings', function(){
+		if( $scope.app.settings.asideDock  &&  $scope.app.settings.asideFixed ){
+			$scope.app.settings.headerFixed = true;
 		}
-		$scope.$watch('app.settings', function(){
-			if( $scope.app.settings.asideDock  &&  $scope.app.settings.asideFixed ){
-				$scope.app.settings.headerFixed = true;
-			}
-			$localStorage.settings = $scope.app.settings;
-		}, true);
-	
-		$scope.activeSetting = false;
-		$scope.tabSetting = function() {
-			$scope.activeSetting = (!$scope.activeSetting) ? true : false;
-		}
-	};
+		$localStorage.settings = $scope.app.settings;
+	}, true);
+
+	$scope.activeSetting = false;
+	$scope.tabSetting = function() {
+		$scope.activeSetting = (!$scope.activeSetting) ? true : false;
+	}
 };

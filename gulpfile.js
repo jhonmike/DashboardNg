@@ -27,8 +27,10 @@ gulp.task('libs', function() {
         "node_modules/ng-img-crop/compile/minified/ng-img-crop.js",
     	"node_modules/angular-ui-router/build/angular-ui-router.js",
         "node_modules/angular-bootstrap/ui-bootstrap-tpls.js",
+        "node_modules/uigrid/ui-grid.js",
     	"config/global.js",
-    	"config/local.js"
+    	"config/local.js",
+        "config/config.js"
     ];
 
     var stream = gulp
@@ -47,7 +49,11 @@ gulp.task('libs', function() {
 // App
 gulp.task('app', function() {
     var stream = gulp
-    .src(['app.js', 'shared/*.js', 'components/**/*.js'])
+    .src([
+        'app.js', 
+        'shared/*.js', 
+        'components/**/*.js'
+    ])
     .pipe(concat('app.js'));
 
     if (config.uglifyJS === true) {
@@ -64,6 +70,7 @@ gulp.task('css', function() {
     var stream = gulp
     .src([
         'node_modules/bootstrap/dist/css/bootstrap.css',
+        "node_modules/uigrid/ui-grid.css",
         'node_modules/font-awesome/css/font-awesome.css',
         'node_modules/ng-img-crop/compile/minified/ng-img-crop.css',
         'assets/less/app.less',
@@ -94,10 +101,28 @@ gulp.task('fonts', function() {
     .pipe(livereload());
 });
 
+// TODO
+gulp.task('fontuigrid', function() {
+    var stream = gulp
+    .src([
+        'node_modules/uigrid/ui-grid.eot',
+        'node_modules/uigrid/ui-grid.svg',
+        'node_modules/uigrid/ui-grid.ttf',
+        'node_modules/uigrid/ui-grid.woff'
+    ]);
+     return stream
+    .pipe(gulp.dest('dist/assets/css'))
+    .pipe(livereload());
+});
+
 // HTML
 gulp.task('html', function(){
     var stream = gulp
-    .src(['layout/*.html', 'layout/**/*.html',  'components/**/*.html']);
+    .src([
+        'layout/*.html', 
+        'layout/**/*.html',  
+        'components/**/*.html'
+    ]);
 
     return stream
     .pipe(livereload());
@@ -142,5 +167,5 @@ gulp.task('connect', function () {
 
 // Default task
 gulp.task('default', function() {
-    gulp.start('libs', 'app', 'css', 'fonts', 'html', 'images', 'connect', 'watch');
+    gulp.start('libs', 'app', 'css', 'fonts', 'fontuigrid', 'html', 'images', 'connect', 'watch');
 });

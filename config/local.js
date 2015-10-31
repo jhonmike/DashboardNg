@@ -1,6 +1,6 @@
 'use strict';
 
-USConfig.serverUrl = 'http://localhost:8000/database';
+USConfig.serverUrl = 'http://api.yii2';
 USConfig.layout = {
 	name: 'Undefined',
 	version: '0.0.1',

@@ -12,7 +12,8 @@ var USConfig = (function() {
             'ngTouch',
 			'ngImgCrop',
 			'ui.router',
-			'ui.bootstrap'
+			'ui.bootstrap',
+			'ui.grid'
 		]
 	};
 })();

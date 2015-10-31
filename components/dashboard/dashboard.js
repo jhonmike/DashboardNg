@@ -3,14 +3,16 @@
 angular.module(USConfig.applicationModuleName)
 	.config(DashboardConfig)
 	.controller('DashboardController', DashboardController)
-	.run(registerWidgets);
+	.run(DashboardMenu)
+	.run(DashboardWidgets);
 
 DashboardConfig.$inject = ['$stateProvider'];
 DashboardController.$inject = [
 	'$scope',
 	'Widget'
 ];
-registerWidgets.$inject = ['Widget'];
+DashboardMenu.$inject = ['Menu'];
+DashboardWidgets.$inject = ['Widget'];
 
 function DashboardConfig($stateProvider)
 {
@@ -27,7 +29,17 @@ function DashboardController($scope, Widget)
 	$scope.widgets = Widget.getDashboard('dashboard');
 };
 
-function registerWidgets(Widget) {
+function DashboardMenu(Menu) {			
+	Menu.addMenuItem('navbar', {
+		itemKey : 'dashboard',
+		title : 'Dashboard',
+		link : 'usAdmin.dashboard',
+		icon : 'glyphicon glyphicon-stats icon',
+		position : '1',
+	});
+}
+
+function DashboardWidgets(Widget) {
 	Widget.addDashboardItem('dashboard', {
 		template : `<div class="panel panel-default">
 			<div class="panel-heading">

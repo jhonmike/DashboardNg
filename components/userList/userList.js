@@ -2,7 +2,8 @@
 
 angular.module(USConfig.applicationModuleName)
 	.config(UserListConfig)
-	.controller('UserListController', UserListController);
+	.controller('UserListController', UserListController)
+	.run(UserListMenu);
 
 UserListConfig.$inject = ['$stateProvider'];
 UserListController.$inject = [
@@ -11,6 +12,7 @@ UserListController.$inject = [
 	'User',
 	'filterFilter'
 ];
+UserListMenu.$inject = ['Menu'];
 
 function UserListConfig($stateProvider)
 {
@@ -25,17 +27,38 @@ function UserListConfig($stateProvider)
 function UserListController($scope, $state, User, filterFilter)
 {
 	$scope.users = User.query();
-	$scope.currentPage = 1;
-	$scope.entryLimit = 8;
-	$scope.users.$promise.then(function () {
-		$scope.totalItems = $scope.users.length;
-		$scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
-	});
+	$scope.gridOptions = {
+		data: $scope.users,
+		u18n: 'pt-br',
+		columnDefs: [
+			{ field: 'name', name: 'Name' },
+			{ field: 'email', name: 'E-mail' },
+			{ field: 'username', name: 'Username' },
+			{ field: 'active', name: 'Active' }
+		],
+		enableGridMenu: true,
+    	// gridMenuTitleFilter: fakeI18n,
+		
+		exporterLinkLabel: 'get your csv here',
+		exporterPdfDefaultStyle: {fontSize: 9},
+		exporterPdfTableStyle: {margin: [30, 30, 30, 30]},
+		exporterPdfTableHeaderStyle: {fontSize: 10, bold: true, italics: true, color: 'red'},
+		exporterPdfOrientation: 'portrait',
+		exporterPdfPageSize: 'LETTER',
+		exporterPdfMaxGridWidth: 500,
+		
+		onRegisterApi: function(gridApi){ 
+			$scope.gridApi = gridApi;
+		}
+	};
+}
 
-	$scope.$watch('search', function (newVal, oldVal) {
-		$scope.filtered = filterFilter($scope.users, newVal);
-		$scope.totalItems = $scope.filtered.length;
-		$scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
-		$scope.currentPage = 1;
-	}, true);
+function UserListMenu(Menu) {			
+	Menu.addMenuItem('navbar', {
+		itemKey : 'user',
+		title : 'Usuários',
+		link : 'usAdmin.userList',
+		icon : 'glyphicon glyphicon-user icon',
+		position : '2',
+	});
 }
