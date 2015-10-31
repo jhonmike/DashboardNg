@@ -1,7 +1,6 @@
-/* global title */
 'use strict';
 
-angular.module('usLayout').service('Menu', [
+angular.module(USConfig.applicationModuleName).service('Menu', [
 	function() {
 		// Define a set of default roles
 		this.defaultRoles = ['*'];

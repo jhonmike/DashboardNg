@@ -1,7 +1,6 @@
-/* global title */
 'use strict';
 
-angular.module('usLayout').service('Widget', [
+angular.module(USConfig.applicationModuleName).service('Widget', [
 	function() {
 		// Define a set of default roles
 		this.defaultRoles = ['*'];

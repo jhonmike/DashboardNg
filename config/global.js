@@ -1,14 +1,8 @@
 'use strict';
 
 var USConfig = (function() {
-    var applicationModuleName = 'UndefinedSource';
-    var registerModule = function(moduleName, dependencies) {
-		angular.module(moduleName, dependencies || []);
-		angular.module(applicationModuleName).requires.push(moduleName);
-	};
-
 	return {
-		applicationModuleName: applicationModuleName,
+		applicationModuleName: 'UndefinedSource',
 		applicationModuleVendorDependencies: [
 			'ngResource',
 			'ngStorage',
@@ -19,8 +13,7 @@ var USConfig = (function() {
 			'ngImgCrop',
 			'ui.router',
 			'ui.bootstrap'
-		],
-		registerModule: registerModule
+		]
 	};
 })();
 

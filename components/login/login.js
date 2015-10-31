@@ -1,15 +1,29 @@
 'use strict';
 
-angular.module('usAuth').controller('AuthenticationController', AuthenticationController);
+angular.module(USConfig.applicationModuleName)
+	.config(LoginConfig)
+	.controller('LoginController', LoginController);
 
-AuthenticationController.$inject = [
+LoginConfig.$inject = ['$stateProvider'];
+LoginController.$inject = [
 	'$scope', 
 	'$http', 
 	'$state', 
 	'$localStorage'
 ];
 
-function AuthenticationController($scope, $http, $state, $localStorage) {
+function LoginConfig($stateProvider)
+{
+	$stateProvider
+	.state('login', {
+		url: '/login',
+		templateUrl: 'components/login/login.html',
+		controller: LoginController
+	});
+};
+
+
+function LoginController($scope, $http, $state, $localStorage) {
 	$scope.user = {};
 	$scope.signin = function() {
 		// this.sending = true;

@@ -6,12 +6,12 @@ less       = require('gulp-less'),
 concat     = require('gulp-concat'),
 minifycss  = require('gulp-minify-css'),
 notify     = require('gulp-notify'),
-uglify     = require('gulp-uglify')
+uglify     = require('gulp-uglify'),
 livereload = require('gulp-livereload');
 
 
 var config = {
-    uglifyJS: true
+    uglifyJS: false
 }
 
 // Libs
@@ -44,11 +44,11 @@ gulp.task('libs', function() {
     .pipe(livereload());
 });
 
-// Modules
-gulp.task('modules', function() {
+// App
+gulp.task('app', function() {
     var stream = gulp
-    .src(['shared/*.js', 'modules/**/*.js'])
-    .pipe(concat('modules.js'));
+    .src(['app.js', 'shared/*.js', 'components/**/*.js'])
+    .pipe(concat('app.js'));
 
     if (config.uglifyJS === true) {
         stream.pipe(uglify());
@@ -66,7 +66,8 @@ gulp.task('css', function() {
         'node_modules/bootstrap/dist/css/bootstrap.css',
         'node_modules/font-awesome/css/font-awesome.css',
         'node_modules/ng-img-crop/compile/minified/ng-img-crop.css',
-        'assets/less/app.less'
+        'assets/less/app.less',
+        'components/**/*.css'
     ])
     .pipe(less()
     .on('error', notify.onError(function (error) {
@@ -96,7 +97,7 @@ gulp.task('fonts', function() {
 // HTML
 gulp.task('html', function(){
     var stream = gulp
-    .src(['modules/**/*.html']);
+    .src(['layout/*.html', 'layout/**/*.html',  'components/**/*.html']);
 
     return stream
     .pipe(livereload());
@@ -115,12 +116,17 @@ gulp.task('watch', function() {
 
     // Watch .less files
     gulp.watch('assets/less/**/*.less', ['css']);
+    gulp.watch('components/**/*.css', ['css']);
 
-    // Watch modules .js files
-    gulp.watch('modules/**/*.js', ['modules']);
+    // Watch app .js files
+    gulp.watch('app.js', ['app']);
+    gulp.watch('shared/*.js', ['app']);
+    gulp.watch('components/**/*.js', ['app']);
 
-    // Watch modules .html files
-    gulp.watch('modules/**/*.html', ['html']);
+    // Watch components .html files
+    gulp.watch('layout/*.html', ['html']);
+    gulp.watch('layout/**/*.html', ['html']);
+    gulp.watch('components/**/*.html', ['html']);
 
     // Watch images
     gulp.watch('assets/images/**/*', ['images']);
@@ -136,5 +142,5 @@ gulp.task('connect', function () {
 
 // Default task
 gulp.task('default', function() {
-    gulp.start('libs', 'modules', 'css', 'fonts', 'html', 'images', 'connect', 'watch');
+    gulp.start('libs', 'app', 'css', 'fonts', 'html', 'images', 'connect', 'watch');
 });
