@@ -1,0 +1,19 @@
+<div class="col">
+	<!-- main header -->
+	<div class="bg-light lter b-b wrapper-md">
+		<div class="row">
+			<div class="col-sm-6 col-xs-12">
+				<h1 class="m-n font-thin h3 text-black">Dashboard</h1>
+				<small class="text-muted">Welcome to application</small>
+			</div>
+		</div>
+	</div>
+	<div class="wrapper-md">
+		<div class="row">
+			<div ng-repeat="widget in widgets.items | orderBy: 'position'" class="{{widget.itemClass}}">
+				<div ng-if="widget.template" ng-bind-html="widget.template"></div>
+				<div ng-if="widget.templateUrl" ng-include="widget.templateUrl"></div>
+			</div>
+		</div>
+	</div>
+</div>
