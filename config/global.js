@@ -13,7 +13,11 @@ var USConfig = (function() {
 			'ngImgCrop',
 			'ui.router',
 			'ui.bootstrap',
-			'ui.grid'
+			'ui.grid',
+			'ui.grid.selection',
+			'ui.grid.pagination',
+			'formly',
+			'formlyBootstrap'
 		]
 	};
 })();
