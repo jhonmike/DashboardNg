@@ -4,14 +4,28 @@
 		<div class="row">
 			<div class="col-sm-6 col-xs-12">
 				<h1 class="m-n font-thin h3 text-black">Usuários</h1>
-				<small class="text-muted">Listagem de usuários</small>
+				<small class="text-muted">
+					<a ui-sref="usAdmin.dashboard">Home</a> > 
+					<span>Lista de Usuários</span>
+				</small>
+			</div>
+			<div class="col-sm-6 col-xs-12 text-right">
+				<a class="btn btn-success" ui-sref="usAdmin.usuarioRegister"><i class="fa fa-plus"></i> Novo</a>
+				<a class="btn btn-info" ng-click="view(itemSelected)" tooltip="Visualizar"><i class="fa fa-list-ul"></i></a>
+				<a class="btn btn-warning" ui-sref="usAdmin.usuarioRegister({id: itemSelected.id})" tooltip="Editar"><i class="fa fa-edit"></i></a>
+				<a class="btn btn-danger" ng-click="delete(itemSelected)" tooltip="Apagar"><i class="fa fa-trash"></i></a>
 			</div>
 		</div>
 	</div>
 	<div class="wrapper-md">
 		<div class="row">
 			<div class="col-xs-12">
-				<div ui-grid="gridOptions" ui-grid-selection ui-grid-exporter ui-grid-move-columns class="grid"></div>
+				<div ui-grid="gridOptions" 
+					ui-grid-selection 
+					ui-grid-exporter 
+					ui-grid-move-columns
+					class="grid">
+				</div>
 			</div>
 		</div>
 	</div>
