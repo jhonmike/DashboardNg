@@ -27,7 +27,8 @@ function UserListConfig($stateProvider)
 function UserListController($scope, $state, i18nService, User)
 {
 	$scope.users = User.query();
-
+	$scope.currentSelection = {};
+	$scope.itemsSelected = [];
 	$scope.gridOptions = {
 		data: $scope.users,
 		columnDefs: [
@@ -49,11 +50,15 @@ function UserListController($scope, $state, i18nService, User)
     	paginationPageSize: 5,
 		onRegisterApi: function(gridApi){
 			$scope.gridApi = gridApi;
+			$scope.gridApi.selection.on.rowSelectionChanged($scope,
+				function(row) {
+					$scope.currentSelection = row.entity;
+					$scope.itemsSelected = $scope.gridApi.selection.getSelectedRows();
+				}
+			).bind(this);
 		}	
 	};
 	i18nService.setCurrentLang('pt-br');
-	
-	$scope.itemSelected = {id: 1};
 	
 	$scope.view = function(entity) {
 		
