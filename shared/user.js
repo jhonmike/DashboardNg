@@ -3,7 +3,7 @@ angular.module(USConfig.applicationModuleName).factory('User', User);
 User.$inject = ['$resource'];
 
 function User($resource) {
-	return $resource(USConfig.serverUrl + '/user.json/:id', {
+	return $resource(USConfig.serverUrl + '/users/:id', {
 		id: '@id'
 	}, {
 		update: {method: 'PUT'},
