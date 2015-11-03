@@ -3,12 +3,12 @@
 <!-- / navbar -->
 
 <!-- menu -->
-<div ng-include=" 'layout/blocks/aside.html' " class="app-aside hidden-xs {{app.settings.asideColor}}"></div>
+<div ng-include=" 'layout/blocks/aside.html' " class="app-aside hidden-xs {{app.settings.asideColor}}" ng-class="{'off-screen': activeAside}"></div>
 <!-- / menu -->
 
 <!-- content -->
 <div class="app-content">
-    <a href class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".app-aside" ></a>
+    <a href class="off-screen-toggle hide" ng-click="toggleAside()"></a>
     <div class="app-content-body fade-in-up" ui-view></div>
 </div>
 <!-- /content -->

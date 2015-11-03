@@ -50,4 +50,12 @@ function AppController($scope, $state, $localStorage, Menu)
 	$scope.tabSetting = function() {
 		$scope.activeSetting = (!$scope.activeSetting) ? true : false;
 	}
+	$scope.activeAside = false;
+	$scope.toggleAside = function() {
+		$scope.activeAside = (!$scope.activeAside) ? true : false;
+	}
+	$scope.activeTopbar = false;
+	$scope.toggleTopbar = function() {
+		$scope.activeTopbar = (!$scope.activeTopbar) ? true : false;
+	}
 };

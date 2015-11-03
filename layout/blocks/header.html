@@ -1,8 +1,8 @@
 <div class="navbar-header {{app.settings.navbarHeaderColor}}">
-    <button class="pull-right visible-xs dk" ui-toggle-class="show" data-target=".navbar-collapse">
+    <button class="pull-right visible-xs dk" ng-click="toggleTopbar()">
         <i class="glyphicon glyphicon-cog"></i>
     </button>
-    <button class="pull-right visible-xs" ui-toggle-class="off-screen" data-target=".app-aside" ui-scroll-to="app">
+    <button class="pull-right visible-xs" ng-click="toggleAside()" ui-scroll-to="app">
         <i class="glyphicon glyphicon-align-justify"></i>
     </button>
     <!-- brand -->
@@ -12,14 +12,11 @@
     </a>
     <!-- / brand -->
 </div>
-<div class="collapse pos-rlt navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
+<div class="collapse pos-rlt navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}" ng-class="{'show': activeTopbar}">
     <!-- buttons -->
     <div class="nav navbar-nav hidden-xs">
         <a href class="btn no-shadow navbar-btn" ng-click="app.settings.asideFolded = !app.settings.asideFolded">
             <i class="fa {{app.settings.asideFolded ? 'fa-indent' : 'fa-dedent'}} fa-fw"></i>
-        </a>
-        <a href class="btn no-shadow navbar-btn" ui-toggle-class="show" target="#aside-user">
-            <i class="icon-user fa-fw"></i>
         </a>
     </div>
     <!-- / buttons -->
