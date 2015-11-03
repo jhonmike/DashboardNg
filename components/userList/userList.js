@@ -1,32 +1,32 @@
 'use strict';
 
 angular.module(USConfig.applicationModuleName)
-	.config(UsuarioListConfig)
-	.controller('UsuarioListController', UsuarioListController)
-	.run(UsuarioListMenu);
+	.config(UserListConfig)
+	.controller('UserListController', UserListController)
+	.run(UserListMenu);
 	
-UsuarioListConfig.$inject = ['$stateProvider'];
-UsuarioListController.$inject = [
+UserListConfig.$inject = ['$stateProvider'];
+UserListController.$inject = [
 	'$scope',
 	'$state',
 	'i18nService',
-	'Usuario'
+	'User'
 ];
-UsuarioListMenu.$inject = ['Menu'];
+UserListMenu.$inject = ['Menu'];
 
-function UsuarioListConfig($stateProvider)
+function UserListConfig($stateProvider)
 {
 	$stateProvider
-	.state('usAdmin.usuarioList', {
-		url: '/usuarios',
-		templateUrl: 'components/usuarioList/usuarioList.html',
-		controller: UsuarioListController
+	.state('usAdmin.userList', {
+		url: '/users',
+		templateUrl: 'components/userList/userList.html',
+		controller: UserListController
 	});
 };
  
-function UsuarioListController($scope, $state, i18nService, Usuario)
+function UserListController($scope, $state, i18nService, User)
 {
-	$scope.users = Usuario.query();
+	$scope.users = User.query();
 
 	$scope.gridOptions = {
 		data: $scope.users,
@@ -64,11 +64,11 @@ function UsuarioListController($scope, $state, i18nService, Usuario)
 	};
 }
 
-function UsuarioListMenu(Menu) {			
+function UserListMenu(Menu) {			
 	Menu.addMenuItem('navbar', {
 		itemKey : 'user',
 		title : 'Usuários',
-		link : 'usAdmin.usuarioList',
+		link : 'usAdmin.userList',
 		icon : 'glyphicon glyphicon-user icon',
 		position : '2',
 	});

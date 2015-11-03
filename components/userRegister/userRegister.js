@@ -1,34 +1,34 @@
 'use strict';
 
 angular.module(USConfig.applicationModuleName)
-	.config(UsuarioRegisterConfig)
-	.controller('UsuarioRegisterController', UsuarioRegisterController)
-	.run(UsuarioRegisterMenu);
+	.config(UserRegisterConfig)
+	.controller('UserRegisterController', UserRegisterController)
+	.run(UserRegisterMenu);
 	
-UsuarioRegisterConfig.$inject = ['$stateProvider'];
-UsuarioRegisterController.$inject = [
+UserRegisterConfig.$inject = ['$stateProvider'];
+UserRegisterController.$inject = [
 	'$scope',
 	'$stateParams',
-	'Usuario',
+	'User',
 	'formlyVersion'
 ];
-UsuarioRegisterMenu.$inject = ['Menu'];
+UserRegisterMenu.$inject = ['Menu'];
 
-function UsuarioRegisterConfig($stateProvider)
+function UserRegisterConfig($stateProvider)
 {
 	$stateProvider
-	.state('usAdmin.usuarioRegister', {
-		url: '/usuario/register/:id',
-		templateUrl: 'components/usuarioRegister/usuarioRegister.html',
-		controller: UsuarioRegisterController
+	.state('usAdmin.userRegister', {
+		url: '/user/register/:id',
+		templateUrl: 'components/userRegister/userRegister.html',
+		controller: UserRegisterController
 	});
 };
  
-function UsuarioRegisterController($scope, $stateParams, Usuario, formlyVersion)
+function UserRegisterController($scope, $stateParams, User, formlyVersion)
 {
 	$scope.user= {};
 	$scope.id = ($stateParams.id) ? $stateParams.id : 0;	  
-	// $scope.user = Usuario.findOne();
+	// $scope.user = User.findOne();
 	
 	$scope.userFields = [
 		{
@@ -41,7 +41,7 @@ function UsuarioRegisterController($scope, $stateParams, Usuario, formlyVersion)
 			}
 		},
 		{
-			key: 'usuario',
+			key: 'user',
 		    type: 'input',
 		    templateOptions: {
 				type: 'text',
@@ -72,11 +72,11 @@ function UsuarioRegisterController($scope, $stateParams, Usuario, formlyVersion)
 	};
 }
 
-function UsuarioRegisterMenu(Menu) {			
+function UserRegisterMenu(Menu) {			
 	Menu.addMenuItem('topbar', {
 		itemKey : 'user',
 		title : 'Usuário',
-		link : 'usAdmin.usuarioRegister',
+		link : 'usAdmin.userRegister',
 		icon : 'glyphicon glyphicon-user icon',
 		position : '2',
 	});
