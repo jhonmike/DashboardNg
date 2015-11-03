@@ -28,6 +28,9 @@ gulp.task('libs', function() {
     	"node_modules/angular-ui-router/build/angular-ui-router.js",
         "node_modules/angular-bootstrap/ui-bootstrap-tpls.js",
         "node_modules/uigrid/ui-grid.js",
+        "node_modules/api-check/dist/api-check.js",
+        "node_modules/angular-formly/dist/formly.js",
+        "node_modules/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js",
     	"config/global.js",
     	"config/local.js",
         "config/config.js"
