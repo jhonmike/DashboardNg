@@ -4,7 +4,7 @@ angular.module(USConfig.applicationModuleName)
 	.config(AppConfig)
 	.controller('AppController', AppController);
 
-AppConfig.$inject = ['$stateProvider'];
+AppConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 AppController.$inject = [
 	'$scope',
 	'$state',
@@ -12,8 +12,10 @@ AppController.$inject = [
 	'Menu'
 ];
 
-function AppConfig($stateProvider)
+function AppConfig($stateProvider, $urlRouterProvider)
 {
+	$urlRouterProvider.otherwise("/login");
+	
 	$stateProvider
 	// .state('us', {
 	// 	abstract: true,
