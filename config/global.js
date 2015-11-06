@@ -15,6 +15,9 @@ var USConfig = (function() {
 			'ui.bootstrap',
 			'ui.grid',
 			'ui.grid.selection',
+			'ui.grid.exporter',
+			'ui.grid.resizeColumns',
+			'ui.grid.moveColumns',
 			'ui.grid.pagination',
 			'formly',
 			'formlyBootstrap'

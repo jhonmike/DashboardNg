@@ -11,9 +11,20 @@
 			</div>
 			<div class="col-sm-6 col-xs-12 text-right">
 				<a class="btn btn-success" ui-sref="usAdmin.userRegister"><i class="fa fa-plus"></i> Novo</a>
-				<a class="btn btn-info" ng-click="view(itemSelected)" tooltip="Visualizar"><i class="fa fa-list-ul"></i></a>
-				<a class="btn btn-warning" ui-sref="usAdmin.userRegister({id: itemSelected.id})" tooltip="Editar"><i class="fa fa-edit"></i></a>
-				<a class="btn btn-danger" ng-click="delete(itemSelected)" tooltip="Apagar"><i class="fa fa-trash"></i></a>
+				<a class="btn btn-info"
+					ng-click="view(currentSelection)" 
+					ng-disabled="itemsSelected.length > 1"
+					ng-show="itemsSelected.length > 0"
+					tooltip="Visualizar"><i class="fa fa-list-ul"></i></a>
+				<a class="btn btn-warning" 
+					ui-sref="usAdmin.userRegister({id: currentSelection.id})"
+					ng-disabled="itemsSelected.length > 1"
+					ng-show="itemsSelected.length > 0"
+					tooltip="Editar"><i class="fa fa-edit"></i></a>
+				<a class="btn btn-danger" 
+					ng-click="delete(itemsSelected)"
+					ng-show="itemsSelected.length > 0"
+					tooltip="Apagar"><i class="fa fa-trash"></i></a>
 			</div>
 		</div>
 	</div>

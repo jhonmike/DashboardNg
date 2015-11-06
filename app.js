@@ -4,7 +4,7 @@ angular.module(USConfig.applicationModuleName)
 	.config(AppConfig)
 	.controller('AppController', AppController);
 
-AppConfig.$inject = ['$stateProvider'];
+AppConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 AppController.$inject = [
 	'$scope',
 	'$state',
@@ -12,8 +12,10 @@ AppController.$inject = [
 	'Menu'
 ];
 
-function AppConfig($stateProvider)
+function AppConfig($stateProvider, $urlRouterProvider)
 {
+	$urlRouterProvider.otherwise("/login");
+	
 	$stateProvider
 	// .state('us', {
 	// 	abstract: true,
@@ -49,5 +51,13 @@ function AppController($scope, $state, $localStorage, Menu)
 	$scope.activeSetting = false;
 	$scope.tabSetting = function() {
 		$scope.activeSetting = (!$scope.activeSetting) ? true : false;
+	}
+	$scope.activeAside = false;
+	$scope.toggleAside = function() {
+		$scope.activeAside = (!$scope.activeAside) ? true : false;
+	}
+	$scope.activeTopbar = false;
+	$scope.toggleTopbar = function() {
+		$scope.activeTopbar = (!$scope.activeTopbar) ? true : false;
 	}
 };

@@ -5,7 +5,7 @@ angular.module(USConfig.applicationModuleName)
 	.controller('UserRegisterController', UserRegisterController)
 	.run(UserRegisterMenu);
 	
-UserRegisterConfig.$inject = ['$stateProvider'];
+UserRegisterConfig.$inject = ['$stateProvider', 'formlyConfigProvider'];
 UserRegisterController.$inject = [
 	'$scope',
 	'$stateParams',
@@ -14,7 +14,7 @@ UserRegisterController.$inject = [
 ];
 UserRegisterMenu.$inject = ['Menu'];
 
-function UserRegisterConfig($stateProvider)
+function UserRegisterConfig($stateProvider, formlyConfigProvider)
 {
 	$stateProvider
 	.state('usAdmin.userRegister', {
@@ -22,6 +22,26 @@ function UserRegisterConfig($stateProvider)
 		templateUrl: 'components/userRegister/userRegister.html',
 		controller: UserRegisterController
 	});
+	
+	// Exemplo de personalização de campo no formly
+	formlyConfigProvider.setType({
+    	name: 'checkbox',
+    	template: `
+			<div>
+				<label>{{to.label}} {{to.required ? '*' : ''}}</label>
+			</div>
+			<label class="i-switch bg-info m-t-xs m-r">
+				<input type="checkbox" ng-model="model[options.key]">
+				<i></i>
+			</label>
+		`,
+    	wrapper: ['bootstrapHasError'],
+    	apiCheck: check => ({
+        	templateOptions: {
+        		label: check.string
+        	}
+      	})
+    });
 };
  
 function UserRegisterController($scope, $stateParams, User, formlyVersion)
@@ -31,7 +51,9 @@ function UserRegisterController($scope, $stateParams, User, formlyVersion)
 	// $scope.user = User.findOne();
 	
 	$scope.userFields = [
+		
 		{
+			className:'col-sm-6',
 			key: 'nome',
 		    type: 'input',
 		    templateOptions: {
@@ -41,6 +63,7 @@ function UserRegisterController($scope, $stateParams, User, formlyVersion)
 			}
 		},
 		{
+			className:'col-sm-4',
 			key: 'user',
 		    type: 'input',
 		    templateOptions: {
@@ -50,6 +73,7 @@ function UserRegisterController($scope, $stateParams, User, formlyVersion)
 			}
 		},
 		{
+			className:'col-sm-2',
 			key: 'senha',
 			type: 'input',
 			templateOptions: {
@@ -59,6 +83,7 @@ function UserRegisterController($scope, $stateParams, User, formlyVersion)
 			}
 		},
 		{
+			className:'col-sm-12 m-b-md',
 			key: 'ativo',
 			type: 'checkbox',
 			templateOptions: {
