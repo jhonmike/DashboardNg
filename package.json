@@ -49,6 +49,7 @@
     "font-awesome": "^4.4.0",
     "ng-img-crop": "^0.2.0",
     "ngstorage": "^0.3.9",
-    "uigrid": "^3.0.0"
+    "uigrid": "^3.0.0",
+    "us-formly-templates": "^1.0.0"
   }
 }
