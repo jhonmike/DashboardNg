@@ -31,6 +31,7 @@ gulp.task('libs', function() {
         "node_modules/api-check/dist/api-check.js",
         "node_modules/angular-formly/dist/formly.js",
         "node_modules/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js",
+        "node_modules/us-formly-templates/src/us-formly-templates.js",
     	"config/global.js",
     	"config/local.js",
         "config/config.js"
