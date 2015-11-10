@@ -5,53 +5,41 @@ angular.module(USConfig.applicationModuleName)
 	.controller('UserRegisterController', UserRegisterController)
 	.run(UserRegisterMenu);
 	
-UserRegisterConfig.$inject = ['$stateProvider', 'formlyConfigProvider'];
+UserRegisterConfig.$inject = ['$stateProvider'];
 UserRegisterController.$inject = [
 	'$scope',
 	'$stateParams',
-	'User',
-	'formlyVersion'
+	'$state',
+	'User'
 ];
 UserRegisterMenu.$inject = ['Menu'];
 
-function UserRegisterConfig($stateProvider, formlyConfigProvider)
+function UserRegisterConfig($stateProvider)
 {
 	$stateProvider
 	.state('usAdmin.userRegister', {
 		url: '/user/register/:id',
-		templateUrl: 'components/userRegister/userRegister.html',
+		templateUrl: 'components/base/form.html',
 		controller: UserRegisterController
 	});
-	
-	// Exemplo de personalização de campo no formly
-	formlyConfigProvider.setType({
-    	name: 'checkbox',
-    	template: `
-			<div>
-				<label>{{to.label}} {{to.required ? '*' : ''}}</label>
-			</div>
-			<label class="i-switch bg-info m-t-xs m-r">
-				<input type="checkbox" ng-model="model[options.key]">
-				<i></i>
-			</label>
-		`,
-    	wrapper: ['bootstrapHasError'],
-    	apiCheck: check => ({
-        	templateOptions: {
-        		label: check.string
-        	}
-      	})
-    });
 };
  
-function UserRegisterController($scope, $stateParams, User, formlyVersion)
+function UserRegisterController($scope, $stateParams, $state, User)
 {
 	$scope.user= {};
-	$scope.id = ($stateParams.id) ? $stateParams.id : 0;	  
-	// $scope.user = User.findOne();
+	if ($stateParams.id) {
+		$scope.id = $stateParams.id;
+		$scope.user = User.findOne();
+		$scope.title = 'Editar Usuário';
+	} else {
+		$scope.title = 'Novo Usuário';
+	}	  
+	$scope.breadcrumb = 'Usuários';
+	$scope.router = [];
+	$scope.router.list = 'usAdmin.userList';
+	$scope.$state = $state;
 	
 	$scope.userFields = [
-		
 		{
 			className:'col-sm-6',
 			key: 'nome',

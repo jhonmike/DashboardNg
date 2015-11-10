@@ -20,7 +20,8 @@ var USConfig = (function() {
 			'ui.grid.moveColumns',
 			'ui.grid.pagination',
 			'formly',
-			'formlyBootstrap'
+			'formlyBootstrap',
+			'usFormlyTemplates'
 		]
 	};
 })();

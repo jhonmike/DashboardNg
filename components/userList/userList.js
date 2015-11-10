@@ -19,13 +19,18 @@ function UserListConfig($stateProvider)
 	$stateProvider
 	.state('usAdmin.userList', {
 		url: '/users',
-		templateUrl: 'components/userList/userList.html',
+		templateUrl: 'components/base/list.html',
 		controller: UserListController
 	});
 };
  
 function UserListController($scope, $state, i18nService, User)
 {
+	$scope.title = 'Usuários';
+	$scope.breadcrumb = 'Lista de Usuários';
+	$scope.router = [];
+	$scope.router.form = 'usAdmin.userRegister';
+	$scope.$state = $state;
 	$scope.users = User.query();
 	$scope.currentSelection = {};
 	$scope.itemsSelected = [];
