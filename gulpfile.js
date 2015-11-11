@@ -23,6 +23,8 @@ gulp.task('libs', function() {
         "node_modules/angular-resource/angular-resource.js",
         "node_modules/angular-sanitize/angular-sanitize.js",
         "node_modules/angular-touch/angular-touch.js",
+        "node_modules/angular-ui-mask/dist/mask.min.js",
+        "node_modules/angular-messages/angular-messages.js",
     	"node_modules/ngstorage/ngStorage.js",
         "node_modules/ng-img-crop/compile/minified/ng-img-crop.js",
     	"node_modules/angular-ui-router/build/angular-ui-router.js",
@@ -54,8 +56,8 @@ gulp.task('libs', function() {
 gulp.task('app', function() {
     var stream = gulp
     .src([
-        'app.js', 
-        'shared/*.js', 
+        'app.js',
+        'shared/*.js',
         'components/**/*.js'
     ])
     .pipe(concat('app.js'));
@@ -123,8 +125,8 @@ gulp.task('fontuigrid', function() {
 gulp.task('html', function(){
     var stream = gulp
     .src([
-        'layout/*.html', 
-        'layout/**/*.html',  
+        'layout/*.html',
+        'layout/**/*.html',
         'components/**/*.html'
     ]);
 

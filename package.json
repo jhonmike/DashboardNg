@@ -40,9 +40,11 @@
     "angular-cookies": "^1.4.7",
     "angular-formly": "^7.3.1",
     "angular-formly-templates-bootstrap": "^6.1.5",
+    "angular-messages": "^1.4.7",
     "angular-resource": "^1.4.7",
     "angular-sanitize": "^1.4.7",
     "angular-touch": "^1.4.7",
+    "angular-ui-mask": "^1.6.0",
     "angular-ui-router": "^0.2.15",
     "api-check": "^7.5.5",
     "bootstrap": "^3.3.5",
@@ -50,6 +52,6 @@
     "ng-img-crop": "^0.2.0",
     "ngstorage": "^0.3.9",
     "uigrid": "^3.0.0",
-    "us-formly-templates": "^1.0.0"
+    "us-formly-templates": "^1.0.2"
   }
 }

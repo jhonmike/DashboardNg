@@ -11,6 +11,8 @@ var USConfig = (function() {
 			'ngSanitize',
             'ngTouch',
 			'ngImgCrop',
+			'ngMessages',
+			'ui.mask',
 			'ui.router',
 			'ui.bootstrap',
 			'ui.grid',

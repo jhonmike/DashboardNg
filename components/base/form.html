@@ -4,8 +4,8 @@
 			<div class="col-sm-6 col-xs-12">
 				<h1 class="m-n font-thin h3 text-black" ng-bind="title"></h1>
 				<small class="text-muted">
-					<a ui-sref="usAdmin.dashboard">Home</a> > 
-					<a ng-click="$state.go(router.list)" ng-bind="breadcrumb"></a> > 
+					<a ui-sref="usAdmin.dashboard">Home</a> >
+					<a ng-click="$state.go(router.list)" ng-bind="breadcrumb"></a> >
 					<span ng-bind="title"></span>
 				</small>
 			</div>
@@ -14,9 +14,11 @@
 	<div class="wrapper-md">
 		<div class="row">
 			<div class="col-xs-12">
-				<formly-form model="user" fields="userFields">
-					<button type="submit" class="btn btn-default" ng-click="submit(user)">Submit</button>
-				</formly-form>
+				<form class="usForm" name="usForm" ng-submit="submit(usForm)" novalidate>
+					<formly-form model="model" fields="formFields" form="usForm">
+						<button type="submit" class="btn btn-default">Submit</button>
+					</formly-form>
+				</form>
 			</div>
 		</div>
 	</div>
