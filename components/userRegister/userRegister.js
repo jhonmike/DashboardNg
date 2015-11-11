@@ -4,7 +4,7 @@ angular.module(USConfig.applicationModuleName)
 	.config(UserRegisterConfig)
 	.controller('UserRegisterController', UserRegisterController)
 	.run(UserRegisterMenu);
-	
+
 UserRegisterConfig.$inject = ['$stateProvider'];
 UserRegisterController.$inject = [
 	'$scope',
@@ -23,31 +23,31 @@ function UserRegisterConfig($stateProvider)
 		controller: UserRegisterController
 	});
 };
- 
+
 function UserRegisterController($scope, $stateParams, $state, User)
 {
-	$scope.user= {};
+	$scope.model= {};
 	if ($stateParams.id) {
 		$scope.id = $stateParams.id;
-		$scope.user = User.findOne();
+		$scope.model = User.findOne();
 		$scope.title = 'Editar Usuário';
 	} else {
 		$scope.title = 'Novo Usuário';
-	}	  
+	}
 	$scope.breadcrumb = 'Usuários';
 	$scope.router = [];
 	$scope.router.list = 'usAdmin.userList';
 	$scope.$state = $state;
-	
-	$scope.userFields = [
+
+	$scope.formFields = [
 		{
 			className:'col-sm-6',
 			key: 'nome',
 		    type: 'input',
 		    templateOptions: {
 				type: 'text',
-			    label: 'Nome: ',
-				placeholder: ''
+			    label: 'Nome',
+				required: true
 			}
 		},
 		{
@@ -56,7 +56,7 @@ function UserRegisterController($scope, $stateParams, $state, User)
 		    type: 'input',
 		    templateOptions: {
 				type: 'text',
-			    label: 'Usuário: ',
+			    label: 'Usuário',
 				placeholder: ''
 			}
 		},
@@ -79,13 +79,13 @@ function UserRegisterController($scope, $stateParams, $state, User)
 			}
 		}
 	];
-	
-	$scope.submit = function(user) {
-		console.log(user);	
+
+	$scope.submit = function(form) {
+		console.log(form);
 	};
 }
 
-function UserRegisterMenu(Menu) {			
+function UserRegisterMenu(Menu) {
 	Menu.addMenuItem('topbar', {
 		itemKey : 'user',
 		title : 'Usuário',
