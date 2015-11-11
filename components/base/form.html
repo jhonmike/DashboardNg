@@ -1,15 +1,12 @@
 <div class="col">
-	<!-- main header -->
 	<div class="bg-light lter b-b wrapper-md">
 		<div class="row">
 			<div class="col-sm-6 col-xs-12">
-				<h1 class="m-n font-thin h3 text-black" ng-if="!id">Novo Usuário</h1>
-				<h1 class="m-n font-thin h3 text-black" ng-if="id">Editar Usuário</h1>
+				<h1 class="m-n font-thin h3 text-black" ng-bind="title"></h1>
 				<small class="text-muted">
 					<a ui-sref="usAdmin.dashboard">Home</a> > 
-					<a ui-sref="usAdmin.userList">Usuários</a> > 
-					<span ng-if="!id">Novo Usuário</span>
-					<span ng-if="id">Editar Usuários</span>
+					<a ng-click="$state.go(router.list)" ng-bind="breadcrumb"></a> > 
+					<span ng-bind="title"></span>
 				</small>
 			</div>
 		</div>
