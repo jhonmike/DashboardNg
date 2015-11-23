@@ -103,33 +103,52 @@ angular.module(USConfig.applicationModuleName).service('Menu', [
 		
 		this.prepareItem = function(menuId, itemOptions) {
 			var key = itemOptions.itemKey.split('.');
-			// console.log(key);
 			var element = this.menus[menuId];
 			if (key.length > 0) {
+				// loop da ordem das chaves
 				for (var i = 0; i < key.length; i++) {
-					// console.log('Chave: ' + key[i]);
 					if (element.items.length > 0) {
+						// loop dos itens ja existentes
 						for (var j = 0; j < element.items.length; j++) {
-							// console.log(element.items[j].id + ' != ' + key[i])
 							if (element.items[j].id != key[i]) {
-								// console.log(key.length + ' =y= ' +  (i+1))
 								if (key.length == (i+1)) {
 									itemOptions["id"] = key[i];
 									element.items.push(this.prepareOptions(menuId, itemOptions));
 									break;
+								} else {
+									if (element.id == key[i-1] && key[i-1] != undefined) {
+										// TODO loop dos itens existentes para comparar os submenus
+										for (var l = 0; l < element.items.length; l++) {
+											if (element.items[l].id == key[i]) {
+												itemOptions["id"] = key[i];
+												element.items[l] = this.prepareOptions(menuId, itemOptions);
+												element = element.items[l];
+												break;
+											} else {
+												var aux = {id: key[i]}
+												element.items[l] = this.prepareOptions(menuId, aux);
+												element = element.items[l];
+												break;
+											}
+										}
+									}
 								}
 							} else {
-								// console.log(key.length + ' =x= ' + (i+1));
 								if (key.length == (i+1)) {
-									console.log("O menu " + key[i+1] + " esta duplicado!");
+									// merge dos itens existentes com novos dados
+									itemOptions["id"] = key[i];
+									itemOptions["items"] = element.items[j].items;
+									element.items[j] = this.prepareOptions(menuId, itemOptions);
 									break;
 								} else {
+									// nada a fazer apenas sob o nivel dos menus
 									element = element.items[j];
 								}
 							}
 						}
 					} else {
 						if (key.length === i+1) {
+							// insere o primeiro item
 							itemOptions["id"] = key[i];
 							element.items.push(this.prepareOptions(menuId, itemOptions));
 							break;
@@ -150,12 +169,13 @@ angular.module(USConfig.applicationModuleName).service('Menu', [
 					isPublic: ((options.isPublic === null || typeof options.isPublic === 'undefined') ? this.menus[id].isPublic : options.isPublic),
 					roles: ((options.roles === null || typeof options.roles === 'undefined') ? this.menus[id].roles : options.roles),
 					position: options.position || 0,
-					items: [],
+					items: ((options.items === null || typeof options.items === 'undefined') ? [] : options.items),
 					shouldRender: shouldRender
 			};
 		}
 		
 		this.addMenu('topbar');
 		this.addMenu('navbar');
+		this.addMenu('dropdownUser');
 	}
 ]);

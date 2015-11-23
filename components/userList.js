@@ -19,7 +19,7 @@ function UserListConfig($stateProvider)
 	$stateProvider
 	.state('usAdmin.userList', {
 		url: '/users',
-		templateUrl: 'components/base/list.html',
+		templateUrl: 'base/list.html',
 		controller: UserListController
 	});
 };

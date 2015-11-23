@@ -7,7 +7,8 @@ concat     = require('gulp-concat'),
 minifycss  = require('gulp-minify-css'),
 notify     = require('gulp-notify'),
 uglify     = require('gulp-uglify'),
-livereload = require('gulp-livereload');
+livereload = require('gulp-livereload'),
+templateCache = require('gulp-angular-templatecache');
 
 
 var config = {
@@ -56,7 +57,7 @@ gulp.task('libs', function() {
 gulp.task('app', function() {
     var stream = gulp
     .src([
-        'app.js',
+        'layout/*.js',
         'shared/*.js',
         'components/**/*.js'
     ])
@@ -125,12 +126,15 @@ gulp.task('fontuigrid', function() {
 gulp.task('html', function(){
     var stream = gulp
     .src([
-        'layout/*.html',
         'layout/**/*.html',
         'components/**/*.html'
     ]);
 
     return stream
+    .pipe(templateCache({
+        module: 'UndefinedSource'
+    }))
+    .pipe(gulp.dest('dist/assets/js'))
     .pipe(livereload());
 });
 
@@ -150,7 +154,7 @@ gulp.task('watch', function() {
     gulp.watch('components/**/*.css', ['css']);
 
     // Watch app .js files
-    gulp.watch('app.js', ['app']);
+    gulp.watch('layout/*.js', ['app']);
     gulp.watch('shared/*.js', ['app']);
     gulp.watch('components/**/*.js', ['app']);
 
@@ -167,7 +171,8 @@ gulp.task('watch', function() {
 gulp.task('connect', function () {
     connect.server({
         port: 8000,
-        livereload: true
+        livereload: true,
+        root: 'dist'
     });
 });
 
