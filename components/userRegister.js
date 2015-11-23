@@ -19,7 +19,7 @@ function UserRegisterConfig($stateProvider)
 	$stateProvider
 	.state('usAdmin.userRegister', {
 		url: '/user/register/:id',
-		templateUrl: 'components/base/form.html',
+		templateUrl: 'base/form.html',
 		controller: UserRegisterController
 	});
 };
@@ -87,10 +87,9 @@ function UserRegisterController($scope, $stateParams, $state, User)
 
 function UserRegisterMenu(Menu) {
 	Menu.addMenuItem('topbar', {
-		itemKey : 'user',
+		itemKey : 'register.user',
 		title : 'Usuário',
 		link : 'usAdmin.userRegister',
-		icon : 'glyphicon glyphicon-user icon',
 		position : '2',
 	});
 }

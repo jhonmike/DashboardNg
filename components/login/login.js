@@ -17,7 +17,7 @@ function LoginConfig($stateProvider)
 	$stateProvider
 	.state('login', {
 		url: '/login',
-		templateUrl: 'components/login/login.html',
+		templateUrl: 'login/login.html',
 		controller: LoginController
 	});
 };
