@@ -21,7 +21,7 @@
     </div>
     <!-- / buttons -->
     <!-- link and dropdown -->
-    <ul class="nav navbar-nav" ng-if="app.default.topbar">
+    <ul class="nav navbar-nav" ng-if="topbar">
         <li ng-repeat="item in topbar.items | orderBy: 'position'" class="{{item.itemClass}}" ng-class="{'active':$state.includes(item.link), 'dropdown':item.items.length > 0}" dropdown>
             <!-- NIVEL 01 -->
             <a ui-sref="{{item.link}}" ng-if="item.items.length == 0">
@@ -61,22 +61,25 @@
     <!-- nabar right -->
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" dropdown>
-            <a href class="dropdown-toggle clear" dropdown-toggle>
+            <a href="javascript:void(0)" class="dropdown-toggle clear" dropdown-toggle>
                 <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
-                    <img ng-src="{{auth.photo}}" alt="...">
-                    <i class="on md b-white bottom"></i>
+                    <img src="assets/img/a0.jpg" alt="...">
                 </span>
-                <span class="hidden-sm hidden-md">{{auth.name}}</span> <b class="caret"></b>
+                <span class="hidden-sm hidden-md" ng-bind="authentication.userName"></span> <b class="caret"></b>
             </a>
             <!-- dropdown -->
             <ul class="dropdown-menu animated fadeInRight w">
-                <li><a href><span class="badge bg-danger pull-right">30%</span><span>Settings</span></a></li>
-                <li><a ui-sref="app.page.profile">Profile</a></li>
-                <li><a ui-sref="app.docs"><span class="label bg-info pull-right">new</span>Help</a></li>
-                <li class="divider"></li>
-                <li><a ui-sref="access.signin">Logout</a></li>
+                <li ng-repeat="item in dropdownUser.items | orderBy: 'position'" class="{{item.itemClass}}" ng-class="{'active':$state.includes(item.link)}">
+                    <a ui-sref="{{item.link}}">
+                        <span ng-bind="item.title"></span>
+                    </a>
+                </li>
+                <li ng-if="dropdownUser.items.length > 0" class="divider"></li>
+                <li>
+                    <a ng-click="logout()">Sair</a>
+                </li>
             </ul>
-        <!-- / dropdown -->
+            <!-- / dropdown -->
         </li>
     </ul>
     <!-- / navbar right -->

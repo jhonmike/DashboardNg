@@ -1,18 +1,18 @@
 'use strict';
 
 angular.module(USConfig.applicationModuleName)
-	.config(AppConfig)
-	.controller('AppController', AppController);
+	.config(LayoutConfig)
+	.controller('LayoutController', LayoutController);
 
-AppConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
-AppController.$inject = [
+LayoutConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
+LayoutController.$inject = [
 	'$scope',
 	'$state',
 	'$localStorage',
 	'Menu'
 ];
 
-function AppConfig($stateProvider, $urlRouterProvider)
+function LayoutConfig($stateProvider, $urlRouterProvider)
 {
 	$urlRouterProvider.otherwise("/login");
 	
@@ -24,15 +24,16 @@ function AppConfig($stateProvider, $urlRouterProvider)
 	.state('usAdmin', {
 		abstract: true,
 		url: '/us-admin',
-		templateUrl: 'layout/admin.html'
+		templateUrl: 'admin.html'
 	});
 };
 
-function AppController($scope, $state, $localStorage, Menu)
+function LayoutController($scope, $state, $localStorage, Menu)
 {
 	// Menus
 	$scope.topbar = Menu.getMenu('topbar');
 	$scope.navbar = Menu.getMenu('navbar');
+	$scope.dropdownUser = Menu.getMenu('dropdownUser');
 	$scope.$state = $state;
 
 	$scope.app = USConfig.layout;

@@ -19,7 +19,7 @@ function DashboardConfig($stateProvider)
 	$stateProvider
 	.state('usAdmin.dashboard', {
 		url: '/dashboard',
-		templateUrl: 'components/dashboard/dashboard.html',
+		templateUrl: 'dashboard/dashboard.html',
 		controller: DashboardController
 	});
 };
@@ -29,7 +29,13 @@ function DashboardController($scope, Widget)
 	$scope.widgets = Widget.getDashboard('dashboard');
 };
 
-function DashboardMenu(Menu) {			
+function DashboardMenu(Menu) {
+	Menu.addMenuItem('topbar', {
+		itemKey : 'register',
+		title : 'Cadastros',
+		link : 'usAdmin',
+		position : '1'
+	});				
 	Menu.addMenuItem('navbar', {
 		itemKey : 'dashboard',
 		title : 'Dashboard',
