@@ -115,23 +115,6 @@ angular.module(USConfig.applicationModuleName).service('Menu', [
 									itemOptions["id"] = key[i];
 									element.items.push(this.prepareOptions(menuId, itemOptions));
 									break;
-								} else {
-									if (element.id == key[i-1] && key[i-1] != undefined) {
-										// TODO loop dos itens existentes para comparar os submenus
-										for (var l = 0; l < element.items.length; l++) {
-											if (element.items[l].id == key[i]) {
-												itemOptions["id"] = key[i];
-												element.items[l] = this.prepareOptions(menuId, itemOptions);
-												element = element.items[l];
-												break;
-											} else {
-												var aux = {id: key[i]}
-												element.items[l] = this.prepareOptions(menuId, aux);
-												element = element.items[l];
-												break;
-											}
-										}
-									}
 								}
 							} else {
 								if (key.length == (i+1)) {
