@@ -41,8 +41,8 @@ function UserRegisterController($scope, $stateParams, $state, User)
 
 	$scope.formFields = [
 		{
-			className:'col-sm-6',
-			key: 'nome',
+			className: 'col-sm-6',
+			key: 'name',
 		    type: 'input',
 		    templateOptions: {
 				type: 'text',
@@ -51,7 +51,7 @@ function UserRegisterController($scope, $stateParams, $state, User)
 			}
 		},
 		{
-			className:'col-sm-4',
+			className: 'col-sm-6',
 			key: 'user',
 		    type: 'input',
 		    templateOptions: {
@@ -61,8 +61,8 @@ function UserRegisterController($scope, $stateParams, $state, User)
 			}
 		},
 		{
-			className:'col-sm-2',
-			key: 'senha',
+			className: 'col-sm-6',
+			key: 'password',
 			type: 'input',
 			templateOptions: {
 				type: 'password',
@@ -71,8 +71,18 @@ function UserRegisterController($scope, $stateParams, $state, User)
 			}
 		},
 		{
-			className:'col-sm-12 m-b-md',
-			key: 'ativo',
+			className: 'col-sm-6',
+			key: 'password-confirm',
+			type: 'input',
+			templateOptions: {
+				type: 'password',
+				label: 'Confirmar Senha',
+				placeholder: ''
+			}
+		},
+		{
+			className: 'col-sm-12',
+			key: 'active',
 			type: 'checkbox',
 			templateOptions: {
 				label: 'Ativo'
