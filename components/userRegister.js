@@ -100,6 +100,6 @@ function UserRegisterMenu(Menu) {
 		itemKey : 'register.user',
 		title : 'Usuário',
 		link : 'usAdmin.userRegister',
-		position : '2',
+		position : '1',
 	});
 }

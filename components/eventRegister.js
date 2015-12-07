@@ -19,7 +19,7 @@ function EventRegisterConfig($stateProvider)
 	$stateProvider
 	.state('usAdmin.eventRegister', {
 		url: '/event/register/:id',
-		templateUrl: 'components/base/form.html',
+		templateUrl: 'base/form.html',
 		controller: EventRegisterController
 	});
 };
@@ -75,10 +75,9 @@ function EventRegisterController($scope, $stateParams, $state, Event)
 
 function EventRegisterMenu(Menu) {
 	Menu.addMenuItem('topbar', {
-		itemKey : 'event',
+		itemKey : 'register.event',
 		title : 'Evento',
 		link : 'usAdmin.eventRegister',
-		icon : 'glyphicon glyphicon-calendar icon',
-		position : '3',
+		position : '2',
 	});
 }

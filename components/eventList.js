@@ -19,7 +19,7 @@ function EventListConfig($stateProvider)
 	$stateProvider
 	.state('usAdmin.eventList', {
 		url: '/events',
-		templateUrl: 'components/base/list.html',
+		templateUrl: 'base/list.html',
 		controller: EventListController
 	});
 };
