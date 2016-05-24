@@ -1,0 +1,20 @@
+.demo-toolbar {
+    padding: 6px;
+
+    .demo-toolbar-icon {
+        padding: 0 14px 0 14px;
+    }
+
+    .demo-fill-remaining {
+        flex: 1 1 auto;
+    }
+}
+.demo-sidenav-layout {
+    border: 3px solid black;
+    md-sidenav {
+        padding: 10px;
+    }
+}
+.demo-sidenav-content {
+    padding: 15px;
+}

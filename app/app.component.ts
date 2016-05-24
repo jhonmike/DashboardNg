@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
+import { MdIcon } from '@angular2-material/icon';
 import { MdToolbar } from '@angular2-material/toolbar';
+import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav';
 import { MdButton } from '@angular2-material/button';
 
 @Component({
     selector: 'my-app',
-    template: `<md-toolbar color="primary">
-            Angular Material 2 App
-            </md-toolbar>
-    
-            <div style="padding: 7px">
-                <button md-button>Basic Button</button>
-        <button md-raised-button>Raised Button</button>
-    </div>`,
-    directives: [MdToolbar, MdButton]
+    templateUrl: 'app/app.component.html',
+    styleUrls: ['app/app.component.css'],
+    directives: [MdIcon, MdToolbar, MD_SIDENAV_DIRECTIVES, MdButton]
 })
 export class AppComponent { }
