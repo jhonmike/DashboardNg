@@ -1,0 +1,1 @@
+{"version":3,"file":"position-strategy.js","sourceRoot":"","sources":["position-strategy.ts"],"names":[],"mappings":"","sourcesContent":["/** Strategy for setting the position on an overlay. */\nexport interface PositionStrategy {\n\n  /** Updates the position of the overlay element. */\n  apply(element: Element): Promise<void>;\n}\n"]}

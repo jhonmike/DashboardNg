@@ -1,0 +1,18 @@
+/**
+ * Mixin that creates a new stacking context.
+ * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+ */
+/**
+ * This mixin hides an element visually.
+ * That means it's still accessible for screen-readers but not visible in view.
+ */
+.md-live-announcer {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  text-transform: none;
+  width: 1px; }

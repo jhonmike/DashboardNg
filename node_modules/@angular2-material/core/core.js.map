@@ -1,0 +1,1 @@
+{"version":3,"file":"core.js","sourceRoot":"","sources":["core.ts"],"names":[],"mappings":";;;;AAAA,MAAM;AACN,iBAAc,WAAW,CAAC,EAAA;AAE1B,UAAU;AACV,iBAAc,iBAAiB,CAAC,EAAA;AAChC,iBAAc,4BAA4B,CAAC,EAAA","sourcesContent":["// RTL\nexport * from './rtl/dir';\n\n// Portals\nexport * from './portal/portal';\nexport * from './portal/portal-directives';\n"]}

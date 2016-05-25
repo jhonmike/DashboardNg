@@ -1,0 +1,53 @@
+/**
+ * Mixin that creates a new stacking context.
+ * see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+ */
+/**
+ * This mixin hides an element visually.
+ * That means it's still accessible for screen-readers but not visible in view.
+ */
+:host {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 64px;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding: 0 16px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: whitesmoke;
+  color: rgba(0, 0, 0, 0.87); }
+  :host.md-primary {
+    background: #009688;
+    color: white; }
+  :host.md-accent {
+    background: #9c27b0;
+    color: rgba(255, 255, 255, 0.870588); }
+  :host.md-warn {
+    background: #f44336;
+    color: white; }
+  :host md-toolbar-row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 64px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
