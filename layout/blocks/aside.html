@@ -1,0 +1,35 @@
+<div class="aside-wrap">
+    <div class="navi-wrap">
+        <nav ui-nav class="navi clearfix">
+            <ul class="nav" ng-if="navbar">
+                <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                    <span>Navigation</span>
+                </li>
+                <li ng-repeat="item in navbar.items | filter:searchNavbar | orderBy: 'position'" class="{{item.itemClass}}" ng-class="{active:$state.includes(item.link), dropdown:item.items.length > 0}">
+                    <!-- NIVEL 01 -->
+                    <a ui-sref="{{item.link}}" ng-if="item.items.length == 0" tooltip-placement="right" tooltip="{{item.title}}">
+                        <i ng-if="item.icon" class="{{item.icon}}"></i>
+                        <span class="font-bold" ng-bind="item.title"></span>
+                    </a>
+                    <!-- NIVEL 01 Sub -->
+                    <a class="dropdown-toggle" ng-if="item.items.length > 0">
+                        <span class="pull-right text-muted">
+                            <i class="fa fa-fw fa-angle-right text"></i>
+                            <i class="fa fa-fw fa-angle-down text-active"></i>
+                        </span>
+                        <i ng-if="item.icon" class="{{item.icon}}"></i>
+                        <span class="font-bold" ng-bind="item.title"></span>
+                    </a>
+                    <ul class="nav nav-sub dk" ng-if="item.items.length > 0">
+                        <li ng-repeat="subitem in item.items | orderBy: 'position'" class="nav-sub-header" ui-sref-active="active">
+                            <!-- NIVEL 02 -->
+                            <a class="btn-xs" ui-sref="{{subitem.link}}" ng-if="subitem.items.length == 0">
+                                <span class="font-bold" ng-bind="subitem.title"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

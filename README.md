@@ -1,11 +1,16 @@
-# Dashboard Angular2
+# Client AngularJS
 
 ## Instalação
 
+	npm install -g gulp
 	npm install
-	npm start
 	
-	http://localhost:3000
+duplique o arquivo local.js.dist e renomeie para local.js, o configure e agora vamos rodar o gulp, que fara o trabalho bruto!
+
+	gulp
 	
-### [Demo](http://jhonmike.github.io/DashboardNg/)
+	http://localhost:8000
+	
+## Primeira Impressão
+![Dashboard](/assets/images/dashboard.png)
 

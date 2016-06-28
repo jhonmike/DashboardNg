@@ -1,0 +1,33 @@
+<div class="container w-xxl w-auto-xs">
+	<div class="panel panel-primary">
+		<div class="panel-heading text-center">
+			<span class="navbar-brand block" ng-bind="app.name"></span>
+		</div>
+		<div class="panel-body">
+			<p class="text-center padder-v font-bold">LOGIN</p>
+			<form name="form" class="form-validation m-b-md" ng-submit="signin()">
+				<div class="form-group has-feedback">
+					<input placeholder="Usuário" ng-model="user.username" class="form-control" type="text" required>
+					<span class="fa fa-user form-control-feedback text-muted"></span>
+				</div>
+				<div class="form-group has-feedback">
+					<input  placeholder="Senha" ng-model="user.password" class="form-control" type="password" required>
+					<span class="fa fa-lock form-control-feedback text-muted"></span>
+				</div>
+				<div class="checkbox m-b-md m-t-none">
+					<label class="i-checks">
+						<input type="checkbox" ng-model="user.rememberme"><i></i> Lembrar-me
+					</label>
+				</div>
+				<br>
+				<button type="submit" class="btn btn-primary btn-block" ng-disabled='form.$invalid'>Login</button>
+			</form>
+			<p class="text-center text-muted">ou</p>
+			<a href="#" ui-sref="access.signup" class="btn btn-block btn-default">
+				<strong>Cadastre-se</strong>
+			</a>
+		</div>
+		<div class="text-center padder-v"><a href="#" class="text-muted">Esqueceu a senha?</a>
+		</div>
+	</div>
+</div>

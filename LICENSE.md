@@ -1,4 +1,4 @@
-Copyright (c) 2015, Jhon Mike <developer@jhonmike.com.br>, Julio Fabiane <juliofabiane1@gmail.com>
+Copyright (c) 2015, Jhon Mike Soares - developer@jhonmike.com.br
 
 Permission to use, copy, modify, and distribute this software for any
 purpose with or without fee is hereby granted, provided that the above

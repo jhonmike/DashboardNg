@@ -1,0 +1,43 @@
+<div class="col">
+	<!-- main header -->
+	<div class="bg-light lter b-b wrapper-md">
+		<div class="row">
+			<div class="col-sm-6 col-xs-12">
+				<h1 class="m-n font-thin h3 text-black" ng-bind="title"></h1>
+				<small class="text-muted">
+					<a ui-sref="usAdmin.dashboard">Home</a> > 
+					<span ng-bind="breadcrumb"></span>
+				</small>
+			</div>
+			<div class="col-sm-6 col-xs-12 text-right">
+				<a class="btn btn-success" ng-click="$state.go(router.form)"><i class="fa fa-plus"></i> Novo</a>
+				<a class="btn btn-info"
+					ng-click="view(currentSelection)" 
+					ng-disabled="itemsSelected.length > 1"
+					ng-show="itemsSelected.length > 0"
+					tooltip="Visualizar"><i class="fa fa-list-ul"></i></a>
+				<a class="btn btn-warning" 
+					ng-click="$state.go(router.form, {id: currentSelection.id})"
+					ng-disabled="itemsSelected.length > 1"
+					ng-show="itemsSelected.length > 0"
+					tooltip="Editar"><i class="fa fa-edit"></i></a>
+				<a class="btn btn-danger" 
+					ng-click="delete(itemsSelected)"
+					ng-show="itemsSelected.length > 0"
+					tooltip="Apagar"><i class="fa fa-trash"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="wrapper-md">
+		<div class="row">
+			<div class="col-xs-12">
+				<div ui-grid="gridOptions" 
+					ui-grid-selection 
+					ui-grid-exporter 
+					ui-grid-move-columns
+					class="grid">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
