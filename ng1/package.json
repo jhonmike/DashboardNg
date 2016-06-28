@@ -9,6 +9,8 @@
     "email": "developer@jhonmike.com.br"
   },
   "scripts": {
+    "serve": "gulp",
+    "generate-dist": "gulp dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "contributors": [

@@ -4,3 +4,4 @@
 /dist/**/*.css
 /dist/**/*.html
 !/dist/index.html
+*.log
