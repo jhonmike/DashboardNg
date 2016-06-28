@@ -1,5 +1,5 @@
 # DashboardNG
 
-## [DashNG1](ng1)
+## [Dashboard AngularJS 1.5](ng1)
 
-## [DashNG2](ng2)
+## [Dashboard Angular 2 /dev/](ng2)
