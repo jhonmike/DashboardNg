@@ -6,14 +6,6 @@ angular.module(USConfig.applicationModuleName)
 	.run(DashboardMenu)
 	.run(DashboardWidgets);
 
-DashboardConfig.$inject = ['$stateProvider'];
-DashboardController.$inject = [
-	'$scope',
-	'Widget'
-];
-DashboardMenu.$inject = ['Menu'];
-DashboardWidgets.$inject = ['Widget'];
-
 function DashboardConfig($stateProvider)
 {
 	$stateProvider
@@ -22,12 +14,13 @@ function DashboardConfig($stateProvider)
 		templateUrl: 'dashboard/dashboard.html',
 		controller: DashboardController
 	});
-};
+}
 
-function DashboardController($scope, Widget)
+function DashboardController(Widget)
 {
-	$scope.widgets = Widget.getDashboard('dashboard');
-};
+	var vm = this;
+	vm.widgets = Widget.getDashboard('dashboard');
+}
 
 function DashboardMenu(Menu) {
 	Menu.addMenuItem('topbar', {

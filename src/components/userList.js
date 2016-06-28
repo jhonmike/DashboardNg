@@ -4,15 +4,6 @@ angular.module(USConfig.applicationModuleName)
 	.config(UserListConfig)
 	.controller('UserListController', UserListController)
 	.run(UserListMenu);
-	
-UserListConfig.$inject = ['$stateProvider'];
-UserListController.$inject = [
-	'$scope',
-	'$state',
-	'i18nService',
-	'User'
-];
-UserListMenu.$inject = ['Menu'];
 
 function UserListConfig($stateProvider)
 {
@@ -22,20 +13,21 @@ function UserListConfig($stateProvider)
 		templateUrl: 'base/list.html',
 		controller: UserListController
 	});
-};
+}
  
-function UserListController($scope, $state, i18nService, User)
+function UserListController($state, i18nService, User)
 {
-	$scope.title = 'Usuários';
-	$scope.breadcrumb = 'Lista de Usuários';
-	$scope.router = [];
-	$scope.router.form = 'usAdmin.userRegister';
-	$scope.$state = $state;
-	$scope.users = User.query();
-	$scope.currentSelection = {};
-	$scope.itemsSelected = [];
-	$scope.gridOptions = {
-		data: $scope.users,
+	var vm = this;
+	vm.title = 'Usuários';
+	vm.breadcrumb = 'Lista de Usuários';
+	vm.router = [];
+	vm.router.form = 'usAdmin.userRegister';
+	vm.$state = $state;
+	vm.users = User.query();
+	vm.currentSelection = {};
+	vm.itemsSelected = [];
+	vm.gridOptions = {
+		data: vm.users,
 		columnDefs: [
 			{ field: 'id', name: 'Cod.' },
 			{ field: 'nome', name: 'Nome' },
@@ -54,22 +46,24 @@ function UserListController($scope, $state, i18nService, User)
 		paginationPageSizes: [5, 10, 15],
     	paginationPageSize: 5,
 		onRegisterApi: function(gridApi){
-			$scope.gridApi = gridApi;
-			$scope.gridApi.selection.on.rowSelectionChanged($scope,
+			var vm = this;
+			vm.gridApi = gridApi;
+			vm.gridApi.selection.on.rowSelectionChanged(
 				function(row) {
-					$scope.currentSelection = row.entity;
-					$scope.itemsSelected = $scope.gridApi.selection.getSelectedRows();
+					var vm = this;
+					vm.currentSelection = row.entity;
+					vm.itemsSelected = vm.gridApi.selection.getSelectedRows();
 				}
 			).bind(this);
 		}	
 	};
 	i18nService.setCurrentLang('pt-br');
 	
-	$scope.view = function(entity) {
+	vm.view = function(entity) {
 		
 	};
-	
-	$scope.delete = function(entity) {
+
+	vm.delete = function(entity) {
 		
 	};
 }

@@ -4,14 +4,6 @@ angular.module(USConfig.applicationModuleName)
 	.config(LoginConfig)
 	.controller('LoginController', LoginController);
 
-LoginConfig.$inject = ['$stateProvider'];
-LoginController.$inject = [
-	'$scope', 
-	'$http', 
-	'$state', 
-	'$localStorage'
-];
-
 function LoginConfig($stateProvider)
 {
 	$stateProvider
@@ -20,12 +12,12 @@ function LoginConfig($stateProvider)
 		templateUrl: 'login/login.html',
 		controller: LoginController
 	});
-};
+}
 
-
-function LoginController($scope, $http, $state, $localStorage) {
-	$scope.user = {};
-	$scope.signin = function() {
+function LoginController($http, $state, $localStorage) {
+	var vm = this;
+	vm.user = {};
+	vm.signin = function() {
 		// this.sending = true;
 		// this.alerts = [];
 		// $http.post(USConfig.serverUrl + '/auth', this.user)
@@ -50,4 +42,4 @@ function LoginController($scope, $http, $state, $localStorage) {
 	// 		this.alerts.push({type:'danger', msg:response.error});
 	// 	});
 	// };
-};
+}
