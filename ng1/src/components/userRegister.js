@@ -11,7 +11,8 @@ function UserRegisterConfig($stateProvider)
 	.state('usAdmin.userRegister', {
 		url: '/user/register/:id',
 		templateUrl: 'base/form.html',
-		controller: UserRegisterController
+		controller: UserRegisterController,
+        controllerAs: 'vm'
 	});
 }
 
@@ -19,12 +20,11 @@ function UserRegisterController($stateParams, $state, User)
 {
 	var vm = this;
 	vm.model= {};
+    vm.title = 'Novo Usuário';
 	if ($stateParams.id) {
 		vm.id = $stateParams.id;
 		vm.model = User.findOne();
 		vm.title = 'Editar Usuário';
-	} else {
-		vm.title = 'Novo Usuário';
 	}
 	vm.breadcrumb = 'Usuários';
 	vm.router = [];
@@ -82,16 +82,20 @@ function UserRegisterController($stateParams, $state, User)
 		}
 	];
 
-	vm.submit = function(form) {
-		console.log(form);
-	};
+    vm.submit = submit;
+
+    function submit(form)
+    {
+        console.log(form);
+    }
 }
 
-function UserRegisterMenu(Menu) {
+function UserRegisterMenu(Menu)
+{
 	Menu.addMenuItem('topbar', {
 		itemKey : 'register.user',
 		title : 'Usuário',
 		link : 'usAdmin.userRegister',
-		position : '1',
+		position : '1'
 	});
 }

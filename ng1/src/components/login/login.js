@@ -10,14 +10,20 @@ function LoginConfig($stateProvider)
 	.state('login', {
 		url: '/login',
 		templateUrl: 'login/login.html',
-		controller: LoginController
+		controller: LoginController,
+        controllerAs: 'vm'
 	});
 }
 
-function LoginController($http, $state, $localStorage) {
+function LoginController($http, $state, $localStorage)
+{
 	var vm = this;
 	vm.user = {};
-	vm.signin = function() {
+	vm.signin = signin;
+	// vm.signup = signup;
+
+	function signin()
+	{
 		// this.sending = true;
 		// this.alerts = [];
 		// $http.post(USConfig.serverUrl + '/auth', this.user)
@@ -29,11 +35,12 @@ function LoginController($http, $state, $localStorage) {
 		// 	this.alerts.push({type:'danger', msg:response.error});
 		// });
 		// provisorio
-		$localStorage.user = $scope.user;
+		$localStorage.user = vm.user;
 		$state.go('usAdmin.dashboard');
-	};
+	}
 
-	// this.signup = function() {
+	// function signup()
+	// {
 	// 	$http.post(USConfig.serverUrl + '/auth/0', $localStorage.user)
 	// .success(function(response) {
 	// 		delete $localStorage.user;

@@ -5,18 +5,18 @@
 		</div>
 		<div class="panel-body">
 			<p class="text-center padder-v font-bold">LOGIN</p>
-			<form name="form" class="form-validation m-b-md" ng-submit="signin()">
+			<form name="form" class="form-validation m-b-md" ng-submit="vm.signin()">
 				<div class="form-group has-feedback">
-					<input placeholder="Usuário" ng-model="user.username" class="form-control" type="text" required>
+					<input placeholder="Usuário" ng-model="vm.user.username" class="form-control" type="text" required>
 					<span class="fa fa-user form-control-feedback text-muted"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input  placeholder="Senha" ng-model="user.password" class="form-control" type="password" required>
+					<input  placeholder="Senha" ng-model="vm.user.password" class="form-control" type="password" required>
 					<span class="fa fa-lock form-control-feedback text-muted"></span>
 				</div>
 				<div class="checkbox m-b-md m-t-none">
 					<label class="i-checks">
-						<input type="checkbox" ng-model="user.rememberme"><i></i> Lembrar-me
+						<input type="checkbox" ng-model="vm.user.rememberme"><i></i> Lembrar-me
 					</label>
 				</div>
 				<br>

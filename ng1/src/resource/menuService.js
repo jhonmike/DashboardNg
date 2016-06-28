@@ -155,7 +155,7 @@ angular.module(USConfig.applicationModuleName).service('Menu', [
 					items: ((options.items === null || typeof options.items === 'undefined') ? [] : options.items),
 					shouldRender: shouldRender
 			};
-		}
+		};
 		
 		this.addMenu('topbar');
 		this.addMenu('navbar');

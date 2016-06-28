@@ -11,7 +11,8 @@ function UserListConfig($stateProvider)
 	.state('usAdmin.userList', {
 		url: '/users',
 		templateUrl: 'base/list.html',
-		controller: UserListController
+		controller: UserListController,
+        controllerAs: 'vm'
 	});
 }
  
@@ -59,21 +60,27 @@ function UserListController($state, i18nService, User)
 	};
 	i18nService.setCurrentLang('pt-br');
 	
-	vm.view = function(entity) {
-		
-	};
+	vm.view = view;
+	vm.delete = deletefn;
 
-	vm.delete = function(entity) {
+	function view(entity)
+    {
 		
-	};
+	}
+
+	function deletefn(entity)
+	{
+		
+	}
 }
 
-function UserListMenu(Menu) {			
+function UserListMenu(Menu)
+{
 	Menu.addMenuItem('navbar', {
 		itemKey : 'user',
 		title : 'Usuários',
 		link : 'usAdmin.userList',
 		icon : 'glyphicon glyphicon-user icon',
-		position : '2',
+		position : '2'
 	});
 }

@@ -1,8 +1,7 @@
 angular.module(USConfig.applicationModuleName).factory('User', User);
 
-User.$inject = ['$resource'];
-
-function User($resource) {
+function User($resource)
+{
 	return $resource(USConfig.serverUrl + '/users/:id', {
 		id: '@id'
 	}, {
@@ -11,4 +10,4 @@ function User($resource) {
 		remove: {method:'DELETE'},
 		query: {method:'GET', isArray:true}
 	});
-};
+}

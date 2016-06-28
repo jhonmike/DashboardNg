@@ -2,19 +2,19 @@
 	<div class="bg-light lter b-b wrapper-md">
 		<div class="row">
 			<div class="col-sm-6 col-xs-12">
-				<h1 class="m-n font-thin h3 text-black" ng-bind="title"></h1>
+				<h1 class="m-n font-thin h3 text-black" ng-bind="vm.title"></h1>
 				<small class="text-muted">
 					<a ui-sref="usAdmin.dashboard">Home</a> >
-					<a ng-click="$state.go(router.list)" ng-bind="breadcrumb"></a> >
-					<span ng-bind="title"></span>
+					<a ng-click="vm.$state.go(vm.router.list)" ng-bind="vm.breadcrumb"></a> >
+					<span ng-bind="vm.title"></span>
 				</small>
 			</div>
 		</div>
 	</div>
 	<div class="wrapper-md">
 		<div class="row">
-			<form class="usForm" name="usForm" ng-submit="submit(usForm)" novalidate>
-				<formly-form model="model" fields="formFields" form="usForm">
+			<form class="usForm" name="usForm" ng-submit="vm.submit(usForm)" novalidate>
+				<formly-form model="vm.model" fields="formFields" form="usForm">
 					<div class="col-xs-12 text-right">
 						<button type="submit" class="btn btn-default">Submit</button>
 					</div>

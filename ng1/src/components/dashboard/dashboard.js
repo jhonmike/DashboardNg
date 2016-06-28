@@ -12,7 +12,8 @@ function DashboardConfig($stateProvider)
 	.state('usAdmin.dashboard', {
 		url: '/dashboard',
 		templateUrl: 'dashboard/dashboard.html',
-		controller: DashboardController
+		controller: DashboardController,
+		controllerAs: 'vm'
 	});
 }
 
@@ -22,7 +23,8 @@ function DashboardController(Widget)
 	vm.widgets = Widget.getDashboard('dashboard');
 }
 
-function DashboardMenu(Menu) {
+function DashboardMenu(Menu)
+{
 	Menu.addMenuItem('topbar', {
 		itemKey : 'register',
 		title : 'Cadastros',
@@ -34,11 +36,12 @@ function DashboardMenu(Menu) {
 		title : 'Dashboard',
 		link : 'usAdmin.dashboard',
 		icon : 'glyphicon glyphicon-stats icon',
-		position : '1',
+		position : '1'
 	});
 }
 
-function DashboardWidgets(Widget) {
+function DashboardWidgets(Widget)
+{
 	Widget.addDashboardItem('dashboard', {
 		template : `<div class="panel panel-default">
 			<div class="panel-heading">
@@ -49,6 +52,6 @@ function DashboardWidgets(Widget) {
 			</div>
 		</div>`,
 		class : 'col-md-4 widget', 
-		position : '1',
+		position : '1'
 	});
 }
