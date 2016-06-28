@@ -1,6 +1,6 @@
 /.idea
 /node_modules
-/typings
-/app/**/*.css
-/app/**/*.js
-/app/**/*.map
+/dist/**/*.js
+/dist/**/*.css
+/dist/**/*.html
+!/dist/index.html

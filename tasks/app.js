@@ -8,9 +8,9 @@ config     = require('./config.js');
 gulp.task('app', function() {
     var stream = gulp
     .src([
-        'layout/*.js',
-        'shared/*.js',
-        'components/**/*.js'
+        'src/layout/*.js',
+        'src/resource/*.js',
+        'src/components/**/*.js'
     ])
     .pipe(concat('app.js'));
 
