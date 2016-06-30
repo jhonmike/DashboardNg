@@ -2,7 +2,7 @@
 
 angular.module(USConfig.applicationModuleName).factory('User', User);
 
-function User($resource, $q)
+function User($resource, filterFilter)
 {
     var resource = $resource(USConfig.serverUrl + '/user/:id', {
 		id: '@id'
@@ -14,10 +14,16 @@ function User($resource, $q)
 		'delete': {method:'DELETE'}
 	});
 
-    resource.query = query;
+    // mocks
+    resource.query = find;
+    resource.get = findOne;
 
-    function query() {
-        return mockUsers();
+    function find(data) {
+        return filterFilter(mockUsers(), data);
+    }
+
+    function findOne(data) {
+        return filterFilter(mockUsers(), {'id': data.id})[0];
     }
 
     return resource;
@@ -31,21 +37,24 @@ function mockUsers()
             "username": "test1",
             "password": "123456",
             "name": "Maka",
-            "email": "test1@jhonmike.com.br"
+            "email": "test1@jhonmike.com.br",
+            "active": true
         },
         {
             "id": 2,
             "username": "test2",
             "password": "123456",
             "name": "Maka",
-            "email": "test2@jhonmike.com.br"
+            "email": "test2@jhonmike.com.br",
+            "active": true
         },
         {
             "id": 3,
             "username": "test3",
             "password": "123456",
             "name": "Maka",
-            "email": "test3@jhonmike.com.br"
+            "email": "test3@jhonmike.com.br",
+            "active": true
         }
     ];
 }

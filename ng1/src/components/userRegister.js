@@ -44,7 +44,17 @@ function UserRegisterController($stateParams, $state, User)
 		},
 		{
 			className: 'col-sm-6',
-			key: 'user',
+			key: 'email',
+			type: 'input',
+			templateOptions: {
+				type: 'email',
+				label: 'Email',
+				required: true
+			}
+		},
+		{
+			className: 'col-sm-6',
+			key: 'username',
 		    type: 'input',
 		    templateOptions: {
 				type: 'text',
@@ -59,16 +69,6 @@ function UserRegisterController($stateParams, $state, User)
 			templateOptions: {
 				type: 'password',
 				label: 'Senha',
-				placeholder: ''
-			}
-		},
-		{
-			className: 'col-sm-6',
-			key: 'password-confirm',
-			type: 'input',
-			templateOptions: {
-				type: 'password',
-				label: 'Confirmar Senha',
 				placeholder: ''
 			}
 		},
