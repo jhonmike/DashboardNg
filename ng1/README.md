@@ -11,6 +11,5 @@ duplique o arquivo local.js.dist e renomeie para local.js, o configure e agora v
 	
 	http://localhost:8000
 	
-## Primeira Impressão
-![Dashboard](/ng1/assets/images/dashboard.png)
+## [Demo](http://jhonmike.github.io/DashboardNg/ng1)
 

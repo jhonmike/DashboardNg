@@ -7,5 +7,4 @@
 	
 	http://localhost:3000
 	
-### [Demo](http://jhonmike.github.io/DashboardNg/)
-
+### [Demo](http://jhonmike.github.io/DashboardNg/ng2)
