@@ -7,13 +7,8 @@
 
 	<link rel="stylesheet" href="assets/css/style.min.css">
 </head>
-<body ng-controller="LayoutController as vm">
-	<div ui-view class="app" id="app" ng-class="{
-		'app-header-fixed':vm.app.settings.headerFixed,
-		'app-aside-fixed':vm.app.settings.asideFixed,
-		'app-aside-folded':vm.app.settings.asideFolded,
-		'app-aside-dock':vm.app.settings.asideDock,
-		'container':vm.app.settings.container}"></div>
+<body>
+	<ui-view></ui-view>
 
 	<script src="assets/js/libs.js"></script>
 	<script src="assets/js/app.js"></script>

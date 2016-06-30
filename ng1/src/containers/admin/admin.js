@@ -1,26 +1,24 @@
 'use strict';
 
 angular.module(USConfig.applicationModuleName)
-	.config(LayoutConfig)
-	.controller('LayoutController', LayoutController);
+	.config(AdminConfig)
+	.controller('AdminContainer', AdminContainer);
 
-function LayoutConfig($stateProvider, $urlRouterProvider)
+function AdminConfig($stateProvider, $urlRouterProvider)
 {
 	$urlRouterProvider.otherwise("/login");
 	
 	$stateProvider
-	// .state('us', {
-	// 	abstract: true,
-	// 	templateUrl: 'layout/site.html'
-	// })
 	.state('usAdmin', {
 		abstract: true,
 		url: '/us-admin',
-		templateUrl: 'admin.html'
+		templateUrl: 'admin/admin.html',
+        controller: AdminContainer,
+        controllerAs: 'vm'
 	});
 }
 
-function LayoutController($scope, $state, $localStorage, Menu)
+function AdminContainer($scope, $state, $localStorage, Menu)
 {
     var vm = this;
 	// Menus

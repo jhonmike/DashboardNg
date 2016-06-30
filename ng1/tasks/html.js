@@ -6,7 +6,7 @@ templateCache = require('gulp-angular-templatecache');
 gulp.task('html', function(){
     var stream = gulp
     .src([
-        'src/layout/**/*.html',
+        'src/containers/**/*.html',
         'src/components/**/*.html'
     ]);
 

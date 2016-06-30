@@ -15,6 +15,7 @@ gulp.task('css', function() {
         'node_modules/font-awesome/css/font-awesome.css',
         'node_modules/ng-img-crop/compile/minified/ng-img-crop.css',
         'assets/less/app.less',
+        'src/containers/**/*.css',
         'src/components/**/*.css'
     ])
     .pipe(less()
