@@ -1,9 +1,4 @@
-# Dashboard Angular2
+# Dashboards Demo
 
-## Instalação
-
-	npm install
-	npm start
-	
-	http://localhost:3000
-
+## [DemoNG1](http://jhonmike.github.io/DashboardNg/ng1)
+## [DemoNG2](http://jhonmike.github.io/DashboardNg/ng2)
