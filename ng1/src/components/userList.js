@@ -48,7 +48,7 @@ function UserListController($scope, $state, i18nService, User)
     	paginationPageSize: 5,
 		onRegisterApi: function(gridApi){
 			$scope.gridApi = gridApi;
-			$scope.gridApi.selection.on.rowSelectionChanged(
+			$scope.gridApi.selection.on.rowSelectionChanged($scope,
 				function(row) {
 					vm.currentSelection = row.entity;
 					vm.itemsSelected = $scope.gridApi.selection.getSelectedRows();
