@@ -1,28 +1,28 @@
-<div class="navbar-header {{app.settings.navbarHeaderColor}}">
-    <button class="pull-right visible-xs dk" ng-click="toggleTopbar()">
+<div class="navbar-header {{vm.app.settings.navbarHeaderColor}}">
+    <button class="pull-right visible-xs dk" ng-click="vm.toggleTopbar()">
         <i class="glyphicon glyphicon-cog"></i>
     </button>
-    <button class="pull-right visible-xs" ng-click="toggleAside()" ui-scroll-to="app">
+    <button class="pull-right visible-xs" ng-click="vm.toggleAside()" ui-scroll-to="vm.app">
         <i class="glyphicon glyphicon-align-justify"></i>
     </button>
     <!-- brand -->
     <a href="#/" class="navbar-brand text-lt">
-        <img ng-src="{{app.logo}}" alt="." class="hide">
-        <span class="hidden-folded m-l-xs">{{app.name}}</span>
+        <img ng-src="{{vm.app.logo}}" alt="." class="hide">
+        <span class="hidden-folded m-l-xs">{{vm.app.name}}</span>
     </a>
     <!-- / brand -->
 </div>
-<div class="collapse pos-rlt navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}" ng-class="{'show': activeTopbar}">
+<div class="collapse pos-rlt navbar-collapse box-shadow {{vm.app.settings.navbarCollapseColor}}" ng-class="{'show': vm.activeTopbar}">
     <!-- buttons -->
     <div class="nav navbar-nav hidden-xs">
-        <a href class="btn no-shadow navbar-btn" ng-click="app.settings.asideFolded = !app.settings.asideFolded">
-            <i class="fa {{app.settings.asideFolded ? 'fa-indent' : 'fa-dedent'}} fa-fw"></i>
+        <a href class="btn no-shadow navbar-btn" ng-click="vm.app.settings.asideFolded = !vm.app.settings.asideFolded">
+            <i class="fa {{vm.app.settings.asideFolded ? 'fa-indent' : 'fa-dedent'}} fa-fw"></i>
         </a>
     </div>
     <!-- / buttons -->
     <!-- link and dropdown -->
-    <ul class="nav navbar-nav" ng-if="topbar">
-        <li ng-repeat="item in topbar.items | orderBy: 'position'" class="{{item.itemClass}}" ng-class="{'active':$state.includes(item.link), 'dropdown':item.items.length > 0}" dropdown>
+    <ul class="nav navbar-nav" ng-if="vm.topbar">
+        <li ng-repeat="item in vm.topbar.items | orderBy: 'position'" class="{{item.itemClass}}" ng-class="{'active':vm.$state.includes(item.link), 'dropdown':item.items.length > 0}" dropdown>
             <!-- NIVEL 01 -->
             <a ui-sref="{{item.link}}" ng-if="item.items.length == 0">
                 <i ng-if="item.icon" class="{{item.icon}}"></i>
@@ -65,18 +65,18 @@
                 <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
                     <img src="assets/img/a0.jpg" alt="...">
                 </span>
-                <span class="hidden-sm hidden-md" ng-bind="authentication.userName"></span> <b class="caret"></b>
+                <span class="hidden-sm hidden-md" ng-bind="authentication.username"></span> <b class="caret"></b>
             </a>
             <!-- dropdown -->
             <ul class="dropdown-menu animated fadeInRight w">
-                <li ng-repeat="item in dropdownUser.items | orderBy: 'position'" class="{{item.itemClass}}" ng-class="{'active':$state.includes(item.link)}">
+                <li ng-repeat="item in vm.dropdownUser.items | orderBy: 'position'" class="{{item.itemClass}}" ng-class="{'active':vm.$state.includes(item.link)}">
                     <a ui-sref="{{item.link}}">
                         <span ng-bind="item.title"></span>
                     </a>
                 </li>
-                <li ng-if="dropdownUser.items.length > 0" class="divider"></li>
+                <li ng-if="vm.dropdownUser.items.length > 0" class="divider"></li>
                 <li>
-                    <a ng-click="logout()">Sair</a>
+                    <a ng-click="vm.logout()">Sair</a>
                 </li>
             </ul>
             <!-- / dropdown -->

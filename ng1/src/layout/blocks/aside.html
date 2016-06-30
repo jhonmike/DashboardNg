@@ -1,11 +1,11 @@
 <div class="aside-wrap">
     <div class="navi-wrap">
         <nav ui-nav class="navi clearfix">
-            <ul class="nav" ng-if="navbar">
+            <ul class="nav" ng-if="vm.navbar">
                 <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
                     <span>Navigation</span>
                 </li>
-                <li ng-repeat="item in navbar.items | filter:searchNavbar | orderBy: 'position'" class="{{item.itemClass}}" ng-class="{active:$state.includes(item.link), dropdown:item.items.length > 0}">
+                <li ng-repeat="item in vm.navbar.items | filter:searchNavbar | orderBy: 'position'" class="{{item.itemClass}}" ng-class="{active:vm.$state.includes(item.link), dropdown:item.items.length > 0}">
                     <!-- NIVEL 01 -->
                     <a ui-sref="{{item.link}}" ng-if="item.items.length == 0" tooltip-placement="right" tooltip="{{item.title}}">
                         <i ng-if="item.icon" class="{{item.icon}}"></i>
