@@ -1,6 +1,6 @@
 'use strict';
 
-USConfig.serverUrl = 'http://api.localhost';
+USConfig.serverUrl = 'http://localhost:8000/database';
 USConfig.layout = {
 	name: 'Undefined',
 	version: '0.0.1',
@@ -17,8 +17,8 @@ USConfig.layout = {
 	settings: {
 		themeID: 1,
 		navbarHeaderColor: 'bg-primary',
-        navbarCollapseColor: 'bg-primary',
-        asideColor: 'bg-black',
+		navbarCollapseColor: 'bg-primary',
+		asideColor: 'bg-black',
 		headerFixed: true,
 		asideFixed: false,
 		asideFolded: false,
