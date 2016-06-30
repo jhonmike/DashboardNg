@@ -1,4 +1,5 @@
 /.idea
 /node_modules
 /dist/assets
+/src/config/local.js
 *.log
