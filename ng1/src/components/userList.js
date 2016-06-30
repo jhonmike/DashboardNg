@@ -16,7 +16,7 @@ function UserListConfig($stateProvider)
 	});
 }
  
-function UserListController($state, i18nService, User)
+function UserListController($scope, $state, i18nService, User)
 {
 	var vm = this;
 	vm.title = 'Usuários';
@@ -31,8 +31,8 @@ function UserListController($state, i18nService, User)
 		data: vm.users,
 		columnDefs: [
 			{ field: 'id', name: 'Cod.' },
-			{ field: 'nome', name: 'Nome' },
-			{ field: 'contato', name: 'Contato' },
+			{ field: 'name', name: 'Nome' },
+			{ field: 'username', name: 'Usuário' },
 			{ field: 'email', name: 'E-mail' }
 		],
 		enableSorting: true,
@@ -47,13 +47,11 @@ function UserListController($state, i18nService, User)
 		paginationPageSizes: [5, 10, 15],
     	paginationPageSize: 5,
 		onRegisterApi: function(gridApi){
-			var vm = this;
-			vm.gridApi = gridApi;
-			vm.gridApi.selection.on.rowSelectionChanged(
+			$scope.gridApi = gridApi;
+			$scope.gridApi.selection.on.rowSelectionChanged(
 				function(row) {
-					var vm = this;
 					vm.currentSelection = row.entity;
-					vm.itemsSelected = vm.gridApi.selection.getSelectedRows();
+					vm.itemsSelected = $scope.gridApi.selection.getSelectedRows();
 				}
 			).bind(this);
 		}	

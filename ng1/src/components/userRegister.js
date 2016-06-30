@@ -23,7 +23,7 @@ function UserRegisterController($stateParams, $state, User)
     vm.title = 'Novo Usuário';
 	if ($stateParams.id) {
 		vm.id = $stateParams.id;
-		vm.model = User.findOne();
+		vm.model = User.get({"id": vm.id});
 		vm.title = 'Editar Usuário';
 	}
 	vm.breadcrumb = 'Usuários';
