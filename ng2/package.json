@@ -1,29 +1,17 @@
 {
-  "name": "DashboardNG2",
-  "version": "0.0.1",
-  "description": "Default Dashboard NG2.",
-  "homepage": "http://jhonmike.github.io/DashboardNG2",
-  "main": "index.html",
-  "bugs": {
-    "url": "https://github.com/jhonmike/DashboardNG2/issues",
-    "email": "developer@jhonmike.com.br"
-  },
+  "name": "ng2",
+  "version": "0.0.0",
+  "license": "MIT",
+  "angular-cli": {},
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "lite": "lite-server",
+    "start": "ng serve",
     "postinstall": "typings install",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "typings": "typings"
+    "lint": "tslint \"src/**/*.ts\"",
+    "test": "ng test",
+    "pree2e": "webdriver-manager update",
+    "e2e": "protractor"
   },
-  "author": "Jhon Mike <developer@jhonmike.com.br>",
-  "contributors": [
-    {
-      "name": "Julio Cezar Fabiane",
-      "email": "juliofabiane1@gmail.com"
-    }
-  ],
-  "license": "ISC",
+  "private": true,
   "dependencies": {
     "@angular/common": "2.0.0-rc.4",
     "@angular/compiler": "2.0.0-rc.4",
@@ -33,19 +21,6 @@
     "@angular/platform-browser": "2.0.0-rc.4",
     "@angular/platform-browser-dynamic": "2.0.0-rc.4",
     "@angular/router": "3.0.0-beta.2",
-    "@angular2-material/button": "^2.0.0-alpha.6",
-    "@angular2-material/card": "^2.0.0-alpha.6",
-    "@angular2-material/checkbox": "^2.0.0-alpha.6",
-    "@angular2-material/core": "^2.0.0-alpha.6",
-    "@angular2-material/grid-list": "^2.0.0-alpha.6",
-    "@angular2-material/icon": "^2.0.0-alpha.6",
-    "@angular2-material/input": "^2.0.0-alpha.6",
-    "@angular2-material/list": "^2.0.0-alpha.6",
-    "@angular2-material/progress-bar": "^2.0.0-alpha.6",
-    "@angular2-material/progress-circle": "^2.0.0-alpha.6",
-    "@angular2-material/radio": "^2.0.0-alpha.6",
-    "@angular2-material/sidenav": "^2.0.0-alpha.6",
-    "@angular2-material/toolbar": "^2.0.0-alpha.6",
     "es6-shim": "0.35.1",
     "reflect-metadata": "0.1.3",
     "rxjs": "5.0.0-beta.6",
@@ -53,12 +28,15 @@
     "zone.js": "0.6.12"
   },
   "devDependencies": {
+    "angular-cli": "1.0.0-beta.10",
+    "codelyzer": "0.0.20",
+    "ember-cli-inject-live-reload": "1.4.0",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "0.13.22",
     "karma-chrome-launcher": "0.2.3",
     "karma-jasmine": "0.3.8",
-    "lite-server": "^2.2.0",
+    "protractor": "3.3.0",
     "ts-node": "0.5.5",
     "tslint": "3.11.0",
     "typescript": "1.8.10",
