@@ -21,6 +21,7 @@ const packages: any = {
   '@angular2-material/icon'           : { format: 'cjs', defaultExtension: 'js', main: 'icon.js'},
   '@angular2-material/input'          : { format: 'cjs', defaultExtension: 'js', main: 'input.js'},
   '@angular2-material/list'           : { format: 'cjs', defaultExtension: 'js', main: 'list.js'},
+  '@angular2-material/menu'           : { format: 'cjs', defaultExtension: 'js', main: 'menu.js'},
   '@angular2-material/progress-bar'   : { format: 'cjs', defaultExtension: 'js', main: 'progress-bar.js'},
   '@angular2-material/progress-circle': { format: 'cjs', defaultExtension: 'js', main: 'progress-circle.js'},
   '@angular2-material/radio'          : { format: 'cjs', defaultExtension: 'js', main: 'radio.js'},
@@ -49,6 +50,7 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+  'app/home',
   /** @cli-barrel */
 ];
 
