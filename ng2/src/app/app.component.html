@@ -1,8 +1,4 @@
 <md-toolbar color="primary">
-    <md-menu>
-        <a md-menu-item routerLink]="['/']" routerLinkActive="active" [disabled]="item.disabled">
-            {{title}}
-        </a>
-    </md-menu>
+    <button [routerLink]="['/']" routerLinkActive="active">{{title}}</button>
 </md-toolbar>
 <router-outlet></router-outlet>
