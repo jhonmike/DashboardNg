@@ -1,7 +1,11 @@
-# DashboardNG
+# Client AngularJS
 
-## [Dashboard AngularJS 1.5](ng1)
-### [DemoNG1](http://jhonmike.github.io/DashboardNg/ng1)
+## Instalação
 
-## [Dashboard Angular 2 /dev/](ng2)
-### [DemoNG2](http://jhonmike.github.io/DashboardNg/ng2)
+	npm install -g gulp
+	npm install
+	npm serve
+	
+	http://localhost:8000
+	
+## [Demo](http://jhonmike.github.io/DashboardNg)
