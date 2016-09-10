@@ -1,8 +1,0 @@
-/.idea
-/app/**/*.scss
-/app/**/*.ts
-/app/**/*.map
-LICENSE.md
-package.json
-tsconfig.json
-typings.json
