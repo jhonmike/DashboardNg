@@ -2,7 +2,7 @@ var
 gulp       = require('gulp'),
 concat     = require('gulp-concat'),
 uglify     = require('gulp-uglify'),
-livereload = require('gulp-livereload'),
+connect    = require('gulp-connect'),
 config     = require('./config.js');
 
 gulp.task('libs', function() {
@@ -39,5 +39,5 @@ gulp.task('libs', function() {
 
     return stream
     .pipe(gulp.dest('dist/assets/js'))
-    .pipe(livereload());
+    .pipe(connect.reload());
 });

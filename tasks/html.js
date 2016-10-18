@@ -1,12 +1,13 @@
 var
 gulp          = require('gulp'),
-livereload    = require('gulp-livereload'),
+connect       = require('gulp-connect'),
 templateCache = require('gulp-angular-templatecache');
 
 gulp.task('html', function(){
     var stream = gulp
     .src([
         'src/containers/**/*.html',
+        'src/screens/**/*.html',
         'src/components/**/*.html'
     ]);
 
@@ -15,5 +16,5 @@ gulp.task('html', function(){
         module: 'UndefinedSource'
     }))
     .pipe(gulp.dest('dist/assets/js'))
-    .pipe(livereload());
+    .pipe(connect.reload());
 });
