@@ -43,14 +43,16 @@ function DashboardMenu(Menu)
 function DashboardWidgets(Widget)
 {
 	Widget.addDashboardItem('dashboard', {
-		template : `<div class="panel panel-default">
-			<div class="panel-heading">
-				<span class="text-lt">Widget 01</span>
+		template : `
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<span class="text-lt">Widget 01</span>
+				</div>
+				<div class="hbox text-center text-sm">
+					<h1> Exemplo de widget com template
+				</div>
 			</div>
-			<div class="hbox text-center text-sm">
-				<h1> Exemplo de widget com template
-			</div>
-		</div>`,
+		`,
 		class : 'col-md-4 widget', 
 		position : '1'
 	});

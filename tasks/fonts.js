@@ -1,6 +1,6 @@
 var
 gulp       = require('gulp'),
-livereload = require('gulp-livereload');
+connect    = require('gulp-connect');
 
 gulp.task('fonts', function() {
     var stream = gulp
@@ -11,7 +11,7 @@ gulp.task('fonts', function() {
 
     return stream
     .pipe(gulp.dest('dist/assets/fonts'))
-    .pipe(livereload());
+    .pipe(connect.reload());
 });
 
 // TODO
@@ -25,5 +25,5 @@ gulp.task('fontuigrid', function() {
     ]);
      return stream
     .pipe(gulp.dest('dist/assets/css'))
-    .pipe(livereload());
+    .pipe(connect.reload());
 });

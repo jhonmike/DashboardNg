@@ -4,7 +4,7 @@ less       = require('gulp-less'),
 concat     = require('gulp-concat'),
 minifycss  = require('gulp-minify-css'),
 notify     = require('gulp-notify'),
-livereload = require('gulp-livereload'),
+connect    = require('gulp-connect'),
 config     = require('./config.js');
 
 gulp.task('css', function() {
@@ -16,6 +16,7 @@ gulp.task('css', function() {
         'node_modules/ng-img-crop/compile/minified/ng-img-crop.css',
         'assets/less/app.less',
         'src/containers/**/*.css',
+        'src/screens/**/*.css',
         'src/components/**/*.css'
     ])
     .pipe(less()
@@ -27,5 +28,5 @@ gulp.task('css', function() {
 
     return stream
     .pipe(gulp.dest('dist/assets/css'))
-    .pipe(livereload());
+    .pipe(connect.reload());
 });
